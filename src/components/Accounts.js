@@ -9,6 +9,8 @@ class Accounts extends Component{
     this.state = {
       username: '',
       password: '',
+      loginUsername: '',
+      loginPassword: '',
       errorMessage: null
     }
   }
@@ -27,6 +29,20 @@ class Accounts extends Component{
     console.log(this.state.password);
   }
 
+  // on login username field change, update state
+  handleLoginUsername = (e) => {
+    let loginUsername = e.target.value;
+    this.setState({loginUsername: loginUsername});
+    console.log(this.state.loginUsername);
+  }
+
+  // on login password field change, update state
+  handleLoginPassword = (e) => {
+    let loginPassword = e.target.value;
+    this.setState({loginPassword: loginPassword});
+    console.log(this.state.loginPassword);
+  }
+
   // handle form submit
   handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +54,16 @@ class Accounts extends Component{
     } else {
       this.setState({errorMessage: 'You must have both a username and password to log in!'})
     }
+  }
+
+  // handle login form submit
+  handleLoginSubmit = (e) => {
+    e.preventDefault();
+
+    // If username and password aren't blank, create a user, else throw error
+    User.login({username: this.state.loginUsername, password: this.state.loginPassword});
+    this.setState({loginUsername: '', loginPassword: ''});
+
   }
 
   render(){
@@ -53,6 +79,19 @@ class Accounts extends Component{
           <div className="row">
             <label htmlFor="password">Password:</label>
             <input onChange={this.handlePassword} type="password" className="eight columns offset-by-two" id="password" placeholder="Password" value={this.state.password}/>
+          </div>
+          <button type="submit" className="">Submit</button>
+        </form>
+
+        <h1>Login:</h1>
+        <form onSubmit={this.handleLoginSubmit}>
+          <div className="row">
+            <label htmlFor="username">Username:</label>
+            <input onChange={this.handleLoginUsername} type="text" className="eight columns offset-by-two" id="username" placeholder="Username" value={this.state.loginUsername}/>
+          </div>
+          <div className="row">
+            <label htmlFor="password">Password:</label>
+            <input onChange={this.handleLoginPassword} type="password" className="eight columns offset-by-two" id="password" placeholder="Password" value={this.state.loginPassword}/>
           </div>
           <button type="submit" className="">Submit</button>
         </form>
