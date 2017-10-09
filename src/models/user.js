@@ -22,7 +22,7 @@ var User = Backbone.Model.extend({
     // Still apply save method
     return Backbone.Model.prototype.save.apply(this, arguments);
   },
-  // sign upser up, then set the localStorage with the user as JSON (function below)
+  // sign upser up, then set the localStorage with the user
   signup: function(credentials){
     let newUser = new User(credentials);
     return newUser.save().then(() => {
@@ -31,8 +31,9 @@ var User = Backbone.Model.extend({
   },
   // store user in local storage
   localStore: function(user){
-    localStorage.setItem('user', JSON.stringify(user.toJSON()));
+    localStorage.setItem('user', JSON.stringify(user));
   },
+  // log user up, then set localStorage with the logged in user for use later
   login: function(credentials){
     let loginUrl = 'https://naturals-test-parse-server.herokuapp.com/login?';
     let cred = $.param(credentials);
@@ -41,8 +42,8 @@ var User = Backbone.Model.extend({
 
     $.get(userUrl).then((data) => {
       let newUser = new User(data);
-      User.localStore(data);
       console.log(data);
+      User.localStore(data);
     })
   }
 });
