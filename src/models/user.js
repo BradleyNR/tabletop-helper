@@ -40,7 +40,7 @@ var User = Backbone.Model.extend({
 
     let userUrl = loginUrl + cred;
 
-    $.get(userUrl).then((data) => {
+    return $.get(userUrl).then((data) => {
       let newUser = new User(data);
       console.log(data);
       User.localStore(data);
