@@ -61,15 +61,15 @@ class Card extends Component {
       let inputs = item.inputs.map((item) => {
         return(
           <div className='two columns'>
-            <p className='six column'>{item}</p>
+            <p className='four column'>{item}</p>
             <input className='six columns'></input>
           </div>
         )
       })
 
       return(
-        <div>
-          <h2 className='four columns'>{item.title}</h2>
+        <div className='row'>
+          <h4 className='two columns'>{item.title}</h4>
           {inputs}
         </div>
       )
@@ -77,7 +77,7 @@ class Card extends Component {
     });
 
     return (
-      <div className='five columns cards'>
+      <div className='twelve columns cards'>
         <h1>{this.props.title}</h1>
         {rowsHtml}
       </div>
