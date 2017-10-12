@@ -4,6 +4,7 @@ let Backbone = require('backbone');
 
 
 let Character = Backbone.Model.extend({
+  idAttribute: "objectId",
   defaults: {
     title: '',
     owner: '',
@@ -50,7 +51,13 @@ let Character = Backbone.Model.extend({
     stealth: {},
     survival: {}
   },
-  urlRoot: PARSE_URL + '/classes/CharacterSheets'
+  urlRoot: PARSE_URL + '/classes/CharacterSheets',
+  save: function(key, val, options){
+    delete this.attributes.createdAt;
+    delete this.attributes.updatedAt;
+
+    return Backbone.Model.prototype.save.apply(this, arguments);
+  }
 })
 
 export default Character;
