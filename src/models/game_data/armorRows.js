@@ -1,18 +1,18 @@
 let armorRows = [
   {
-    title: 'Energy Armor Class [EAC]',
+    title: 'EAC',
     inputs: ['Total', 'Armor Bonus', 'Dex Mod', 'Misc Mod']
   },
   {
-    title: 'Kinetic Armor Class [KAC]',
+    title: 'KAC',
     inputs: ['Total', 'Armor Bonus', 'Dex Mod', 'Misc Mod']
   },
   {
-    title: 'AC vs. Combat Maneuvers',
+    title: 'combatManeuver',
     inputs: ['Total', 'KAC']
   },
   {
-    title: null,
+    title: 'DR',
     inputs: ['Damage Resistance', 'Resistances']
   }
 ];

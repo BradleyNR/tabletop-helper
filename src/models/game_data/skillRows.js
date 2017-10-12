@@ -1,82 +1,82 @@
 let skillRows = [
   {
-    title: 'Acrobatics* (DEX)',
+    title: 'acrobatics',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Atheletics* (STR)',
+    title: 'atheletics',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Bluff (CHA)',
+    title: 'bluff',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Computers (INT)',
+    title: 'computers',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Culture (INT)',
+    title: 'culture',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Diplomacy (CHA)',
+    title: 'diplomacy',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Disguise (CHA)',
+    title: 'disguise',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Engineering (INT)',
+    title: 'engineering',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Intimidate (CHA)',
+    title: 'intimidate',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Life Science (INT)',
+    title: 'lifeScience',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Medicine (INT)',
+    title: 'medicine',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Mysticism (WIS)',
+    title: 'mysticism',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Perception (WIS)',
+    title: 'perception',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Physical Science (INT)',
+    title: 'physicalScience',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Profession (CHA, INT, or WIS)',
+    title: 'profession',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Profession (CHA, INT, or WIS)',
+    title: 'profession',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Sense Motive (WIS)',
+    title: 'senseMotive',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Sleight of Hand* (DEX)',
+    title: 'sleightOfHand',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Stealth* (DEX)',
+    title: 'stealth',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Survival (WIS)',
+    title: 'survival',
     inputs: ['Total', 'Ranks', 'Class Bonus', 'Ability Mod', 'Misc Mod']
   }
 ]

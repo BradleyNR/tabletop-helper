@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Character from '../models/Character';
+
 import abilityRows from '../models/game_data/abilityRows';
 import armorRows from '../models/game_data/armorRows';
 import attackBonusRows from '../models/game_data/attackBonusRows';
@@ -9,6 +11,7 @@ import savingThrowsRows from '../models/game_data/savingThrowsRows';
 import skillRows from '../models/game_data/skillRows';
 import spellsKnownRows from '../models/game_data/spellsKnownRows';
 import weaponsRows from '../models/game_data/weaponsRows';
+
 
 
 let card = [
@@ -54,25 +57,38 @@ let card = [
 //title, inputs (array)
 
 class Card extends Component {
+
+  handleDataChange = (item, row, e) => {
+    let target = row.title
+    let character = this.props.character;
+    let obj = this.props.character.attributes[target];
+    obj[item] = e.target.value;
+    character.set(target, obj);
+    this.props.handleUpdate(character);
+  }
+
   render(){
 
     let rowsHtml = this.props.data.map((item, index) => {
+      let row = item;
 
       let inputs = item.inputs.map((item) => {
         return(
-          <div className='flex'>
-            <td className=''>{item}</td>
-            <input className='inputs'></input>
-          </div>
+          <td className=''>
+            {item}
+            <input className='inputs' onChange={this.handleDataChange.bind(this, item, row)} item={item}></input>
+          </td>
         )
       })
 
       return(
         <table className='rows'>
-          <tr>
-            <td className=''>{item.title}</td>
-            {inputs}
-          </tr>
+          <tbody>
+            <tr>
+              <td className=''><h4>{item.title}</h4></td>
+              {inputs}
+            </tr>
+          </tbody>
         </table>
       )
 
@@ -93,19 +109,59 @@ class CharacterSheet extends Component{
   constructor(props){
     super(props);
 
+    this.state = {
+      character: new Character()
+    }
+
+  }
+
+  handleNameChange = (e) => {
+    let character = this.state.character;
+    character.set('characterName', e.target.value);
+    this.setState({character: character});
+    console.log(this.state.character);
+  };
+
+  handleClassChange = (e) => {
+    let character = this.state.character;
+    character.set('characterClass', e.target.value);
+    this.setState({character: character});
+  }
+
+  handleUpdate = (character) => {
+    this.setState({character: character})
+    console.log(this.state.character);
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('before ', this.state.character);
+
+    let character = this.state.character;
+    character.save().then(() => {
+      this.setState({character: character});
+      console.log('uploaded!');
+    });
+    
+    console.log('after ', this.state.character);
   }
 
   render(){
     let cardsHtml = card.map((item, index) => {
       return(
-        <Card title={item.title} data={item.rows} rows={item.rows.length} />
+        <Card title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate}/>
       )
     });
 
     return(
       <div>
         <h1>Charactersheet Page</h1>
-        {cardsHtml}
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleNameChange} placeholder='character name'></input>
+            <input onChange={this.handleClassChange} placeholder='character class'></input>
+            {cardsHtml}
+            <input type='submit'></input>
+          </form>
       </div>
     )
   }

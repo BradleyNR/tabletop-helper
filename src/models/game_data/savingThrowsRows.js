@@ -1,14 +1,14 @@
 let savingThrowsRows = [
   {
-    title: 'Fortitude (CON)',
+    title: 'fortitude',
     inputs: ['Total', 'Base Save', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Reflex (DEX)',
+    title: 'reflex',
     inputs: ['Total', 'Base Save', 'Ability Mod', 'Misc Mod']
   },
   {
-    title: 'Will (WIS)',
+    title: 'will',
     inputs: ['Total', 'Base Save', 'Ability Mod', 'Misc Mod']
   }
 ]

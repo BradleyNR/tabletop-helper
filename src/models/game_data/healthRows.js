@@ -1,10 +1,10 @@
 let healthRows = [
   {
-    title: 'Total',
+    title: 'totalHP',
     inputs: ['Stamina Points', 'Hit Points', 'Resolve Points']
   },
   {
-    title: 'Current',
+    title: 'currentHP',
     inputs: ['Stamina Points', 'Hit Points', 'Resolve Points']
   }
 ]

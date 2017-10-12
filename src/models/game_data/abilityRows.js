@@ -1,26 +1,26 @@
 let abilityRows = [
   {
-    title: 'STR',
+    title: 'str',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
   {
-    title: 'DEX',
+    title: 'dex',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
   {
-    title: 'CON',
+    title: 'con',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
   {
-    title: 'INT',
+    title: 'int',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
   {
-    title: 'WIS',
+    title: 'wis',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
   {
-    title: 'CHA',
+    title: 'cha',
     inputs: ['Score', 'Modifier', 'Upgraded Score', 'Upgraded Modifier']
   },
 ];

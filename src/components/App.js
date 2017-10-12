@@ -14,7 +14,7 @@ class App extends Component {
        <main>
          <Route path='/' exact component={Accounts} />
          <Route path='/sheets' exact component={CharacterSheet} />
-         <Redirect to="/" />
+         {/* <Redirect to="/" /> */}
        </main>
      </Switch>
    </Router>

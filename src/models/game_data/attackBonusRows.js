@@ -1,14 +1,14 @@
 let attackBonusRows = [
   {
-    title: 'Melee Attack',
+    title: 'melee',
     inputs: ['Total', 'Base Attack Bonus', 'STR Modifier', 'Misc Modifier']
   },
   {
-    title: 'Ranged Attack',
+    title: 'range',
     inputs: ['Total', 'Base Attack Bonus', 'DEX Modifier', 'Misc Modifier']
   },
   {
-    title: 'Thrown Attack',
+    title: 'thrown',
     inputs: ['Total', 'Base Attack Bonus', 'STR Modifier', 'Misc Modifier']
   }
 ]

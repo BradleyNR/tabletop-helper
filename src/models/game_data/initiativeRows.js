@@ -1,6 +1,6 @@
 let initiativeRows = [
   {
-    title: 'Initiative',
+    title: 'initiative',
     inputs: ['Total', 'Dex Modifier', 'Misc Modifier']
   }
 ];
