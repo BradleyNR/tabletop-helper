@@ -1,5 +1,5 @@
-import PARSE_URL, {HEADERS} from '../parse.js';
-let $ = window.$ = require('jquery');
+import PARSE_URL from '../parse.js';
+// let $ = window.$ = require('jquery');
 let Backbone = require('backbone');
 
 

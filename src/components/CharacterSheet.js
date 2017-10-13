@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Character, {CharacterList} from '../models/Character';
+import Character from '../models/Character';
 
 import abilityRows from '../models/game_data/abilityRows';
 import armorRows from '../models/game_data/armorRows';
@@ -147,16 +147,10 @@ class CharacterSheet extends Component{
     console.log('after ', this.state.character);
   }
 
-  handleCharacterChange = (e) => {
-    e.preventDefault();
-
-
-  }
-
   render(){
     let cardsHtml = card.map((item, index) => {
       return(
-        <Card title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate}/>
+        <Card key={index} title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate}/>
       )
     });
 

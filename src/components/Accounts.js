@@ -48,7 +48,7 @@ class Accounts extends Component{
     e.preventDefault();
 
     // If username and password aren't blank, create a user, else throw error
-    if (this.state.username != '' && this.state.password != '') {
+    if (this.state.username !== '' && this.state.password !== '') {
       User.signup({username: this.state.username, password: this.state.password}.then(() => {
         this.setState({username: '', password: ''});
         this.props.history.push('/sheets');
