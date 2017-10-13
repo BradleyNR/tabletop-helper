@@ -52,7 +52,7 @@ class CharacterDisplay extends Component {
           {options}
         </select>
         <div>
-          
+          <h1>{stats.characterName}</h1>
         </div>
       </div>
     )

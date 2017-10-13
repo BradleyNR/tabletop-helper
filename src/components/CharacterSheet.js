@@ -12,7 +12,7 @@ import skillRows from '../models/game_data/skillRows';
 import spellsKnownRows from '../models/game_data/spellsKnownRows';
 import weaponsRows from '../models/game_data/weaponsRows';
 
-
+//make the data from the server match the above structure and map over it the same way!!!
 
 let card = [
   {
