@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Character from '../models/Character';
+import Character, {CharacterList} from '../models/Character';
 
 import abilityRows from '../models/game_data/abilityRows';
 import armorRows from '../models/game_data/armorRows';
@@ -141,9 +141,16 @@ class CharacterSheet extends Component{
     character.save().then(() => {
       this.setState({character: character});
       console.log('uploaded!');
+      this.props.history.push('/mycharacters');
     });
-    
+
     console.log('after ', this.state.character);
+  }
+
+  handleCharacterChange = (e) => {
+    e.preventDefault();
+
+
   }
 
   render(){
@@ -155,7 +162,7 @@ class CharacterSheet extends Component{
 
     return(
       <div>
-        <h1>Charactersheet Page</h1>
+        <h1>Charactersheet Creator</h1>
           <form onSubmit={this.handleSubmit}>
             <input onChange={this.handleNameChange} placeholder='character name'></input>
             <input onChange={this.handleClassChange} placeholder='character class'></input>

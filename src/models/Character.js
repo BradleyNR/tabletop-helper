@@ -60,7 +60,16 @@ let Character = Backbone.Model.extend({
   }
 })
 
-export default Character;
+let CharacterList = Backbone.Collection.extend({
+  model: Character,
+  url: PARSE_URL + '/classes/CharacterSheets',
+  // parse is a built in method
+  parse: function(data){
+    return data.results;
+  }
+})
+
+export {Character as default, CharacterList};
 
 
 
