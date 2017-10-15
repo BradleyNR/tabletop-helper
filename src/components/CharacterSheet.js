@@ -60,12 +60,19 @@ import card from '../models/game_data/card';
 class Card extends Component {
 
   handleDataChange = (item, row, e) => {
-    let target = row.title
+    // let target = row.title
+    // let character = this.props.character;
+    // let obj = this.props.character.attributes[target];
+    // obj[item] = e.target.value;
+    // character.set(target, obj);
+    // this.props.handleUpdate(character);
+    console.log('item ', item);
+    console.log('row ', row);
+    console.log('e value ', e.target.value);
+    let target = item;
     let character = this.props.character;
-    let obj = this.props.character.attributes[target];
-    obj[item] = e.target.value;
-    character.set(target, obj);
-    this.props.handleUpdate(character);
+    row.inputs[item] = e.target.value
+    console.log(row);
   }
 
   render(){
@@ -74,13 +81,18 @@ class Card extends Component {
       let row = item;
 
       let inputs = item.inputs.map((item) => {
+        console.log(item);
         return(
-          <td className=''>
-            {item}
-            <input className='inputs' onChange={this.handleDataChange.bind(this, item, row)} item={item}></input>
-          </td>
+          // <td className=''>
+          //   {item}
+          //   <input className='inputs' onChange={this.handleDataChange.bind(this, item, row)} item={item}></input>
+          // </td>
+          <div>
+
+          </div>
         )
       })
+
 
       return(
         <table className='rows'>
@@ -88,6 +100,7 @@ class Card extends Component {
             <tr>
               <td className=''><h4>{item.title}</h4></td>
               {inputs}
+
             </tr>
           </tbody>
         </table>
@@ -120,7 +133,6 @@ class CharacterSheet extends Component{
     let character = this.state.character;
     character.set('characterName', e.target.value);
     this.setState({character: character});
-    console.log(this.state.character);
   };
 
   handleClassChange = (e) => {
@@ -131,7 +143,6 @@ class CharacterSheet extends Component{
 
   handleUpdate = (character) => {
     this.setState({character: character})
-    console.log(this.state.character);
   }
 
   handleSubmit = (e) => {
