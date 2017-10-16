@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Character, {CharacterList} from '../models/Character';
 import card from '../models/game_data/card';
 
+var $ = window.$ = require('jquery');
+
 
 class Card extends Component {
   constructor(props){
@@ -27,7 +29,7 @@ class Card extends Component {
   }
 
   render(){
-    
+
     // creating our fields
     let rowsHtml = this.props.data.map((card, index) => {
 
@@ -36,19 +38,16 @@ class Card extends Component {
       // wizard code to grab object keys and values
       for (var key in card.inputs) {
         if (card.inputs.hasOwnProperty(key)) {
-          // console.log(key + ' -> ' + item[key]);
           inputsArray.push(key)
         }
       }
 
       let inputsHtml = inputsArray.map((title, idx) => {
-        // console.log('idx', idx);
-        // console.log('item', card.inputs)
         return(
-          <tr>
-            <td><p>{title}</p></td>
-            <td><input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]}></input></td>
-          </tr>
+          <td key={idx}>
+            <p>{title}</p>
+            <input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]}></input>
+          </td>
         )
       })
 
@@ -63,7 +62,6 @@ class Card extends Component {
           </tbody>
         </table>
       )
-
     });
 
     return (
@@ -74,7 +72,6 @@ class Card extends Component {
     )
   }
 }
-
 
 
 class CharacterSheet extends Component{
@@ -91,12 +88,31 @@ class CharacterSheet extends Component{
   componentWillMount(){
     // grabs all characters from the server and set to state
     let characterList = this.state.characterList;
-    characterList.fetch().then(() => {
-      this.setState({characterList: characterList});
-    }).then(() => {
+    // grabbing the current objId from the logged in user
+    let user = JSON.parse(localStorage.getItem('user'))
+    let objId = user.objectId;
+    let pointer = {
+       "__type":"Pointer",
+       "className":"_User",
+       "objectId": objId
+     };
+
+     // grabbing character lists associated with logged in user
+    characterList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
+      if (data) {
+        console.log('all good');
+        this.setState({characterList: characterList});
+      } else {
+        console.log('no data');
+        this.setState({character: new Character({cards: card}), characterList: new CharacterList()})
+      }
+
+    }).then((data) => {
       // set selected character equal to first returned character (also first in drop down list)
-      let selectedCharacter = this.state.characterList.models[0];
-      this.setState({character: selectedCharacter});
+      if (data) {
+        let selectedCharacter = this.state.characterList.models[0];
+        this.setState({character: selectedCharacter});
+      }
     });
   }
 
@@ -132,7 +148,9 @@ class CharacterSheet extends Component{
     })
 
     character.save().then(() => {
-      this.setState({character: character});
+      let characterList = this.state.characterList;
+      characterList.add(character);
+      this.setState({character: character, characterList: characterList});
       console.log('uploaded!');
       // this.props.history.push('/mycharacters');
     });
@@ -146,6 +164,7 @@ class CharacterSheet extends Component{
     this.setState({character: new Character({cards: card})});
   }
 
+  // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
   handleCharacterChange = (e) => {
     e.preventDefault();
 
