@@ -59,7 +59,7 @@ import card from '../models/game_data/card';
 
 class Card extends Component {
 
-  handleDataChange = (item, row, e) => {
+  handleDataChange = (item, e) => {
     // let target = row.title
     // let character = this.props.character;
     // let obj = this.props.character.attributes[target];
@@ -67,38 +67,53 @@ class Card extends Component {
     // character.set(target, obj);
     // this.props.handleUpdate(character);
     console.log('item ', item);
-    console.log('row ', row);
     console.log('e value ', e.target.value);
     let target = item;
     let character = this.props.character;
-    row.inputs[item] = e.target.value
-    console.log(row);
+    console.log('character ', character);
+    console.log('dataatatata ', this.props.data);
   }
 
   render(){
 
-    let rowsHtml = this.props.data.map((item, index) => {
-      let row = item;
+    let rowsHtml = this.props.data.map((card, index) => {
 
-      let inputs = item.inputs.map((item) => {
-        console.log(item);
+      let inputs = card.inputs.map((row) => {
+        console.log(row);
+
+        let inputsArray = [];
+
+        // wizard code to grab object keys and values
+        for (var key in row) {
+          if (row.hasOwnProperty(key)) {
+            // console.log(key + ' -> ' + item[key]);
+            inputsArray.push(key)
+          }
+        }
+
+        let inputsHtml = inputsArray.map((title, idx) => {
+          console.log('idx', idx);
+          console.log('item', row)
+          return(
+            <tr>
+              <td><p>{title}</p></td>
+              <td><input className='inputs' onChange={this.handleDataChange.bind(this, title)} value={row[title]}></input></td>
+            </tr>
+          )
+        })
+
         return(
-          // <td className=''>
-          //   {item}
-          //   <input className='inputs' onChange={this.handleDataChange.bind(this, item, row)} item={item}></input>
-          // </td>
-          <div>
-
-          </div>
+          <td>
+            {inputsHtml}
+          </td>
         )
       })
-
 
       return(
         <table className='rows'>
           <tbody>
             <tr>
-              <td className=''><h4>{item.title}</h4></td>
+              <td className=''><h4>{card.title}</h4></td>
               {inputs}
 
             </tr>

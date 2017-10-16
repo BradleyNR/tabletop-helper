@@ -4,7 +4,7 @@ let card = [
     rows: [
       {
         title: 'STR',
-        inputs: [{'Score': '', 'Modifier': '', 'Upgraded Score': '', 'Upgraded Modifier': ''}]
+        inputs: [{'Score': 'JOELBILLION', 'Modifier': '1.0', 'Upgraded Score': '', 'Upgraded Modifier': ''}]
       },
       {
         title: 'DEX',
