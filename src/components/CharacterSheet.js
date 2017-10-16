@@ -101,7 +101,7 @@ class CharacterSheet extends Component{
     characterList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
       if (data) {
         console.log('all good');
-        this.setState({characterList: characterList});
+        this.setState({characterList: characterList, character: characterList.models[0]});
       } else {
         console.log('no data');
         this.setState({character: new Character({cards: card}), characterList: new CharacterList()})
