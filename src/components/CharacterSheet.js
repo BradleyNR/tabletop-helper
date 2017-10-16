@@ -1,111 +1,54 @@
 import React, { Component } from 'react';
 
-import Character from '../models/Character';
+import Character, {CharacterList} from '../models/Character';
 import card from '../models/game_data/card';
 
-// import abilityRows from '../models/game_data/abilityRows';
-// import armorRows from '../models/game_data/armorRows';
-// import attackBonusRows from '../models/game_data/attackBonusRows';
-// import healthRows from '../models/game_data/healthRows';
-// import initiativeRows from '../models/game_data/initiativeRows';
-// import savingThrowsRows from '../models/game_data/savingThrowsRows';
-// import skillRows from '../models/game_data/skillRows';
-// import spellsKnownRows from '../models/game_data/spellsKnownRows';
-// import weaponsRows from '../models/game_data/weaponsRows';
-
-//make the data from the server match the above structure and map over it the same way!!!
-
-// let card = [
-//   {
-//     title: 'Ability Scores',
-//     rows: abilityRows
-//   },
-//   {
-//     title: 'Armor Class',
-//     rows: armorRows
-//   },
-//   {
-//     title: 'Attack Bonuses',
-//     rows: attackBonusRows
-//   },
-//   {
-//     title: 'Health and Resolve',
-//     rows: healthRows
-//   },
-//   {
-//     title: 'Initiative',
-//     rows: initiativeRows
-//   },
-//   {
-//     title: 'Saving Throws',
-//     rows: savingThrowsRows
-//   },
-//   {
-//     title: 'Skills',
-//     rows: skillRows
-//   },
-//   {
-//     title: 'Spells',
-//     rows: spellsKnownRows
-//   },
-//   {
-//     title: 'Weapons',
-//     rows: weaponsRows
-//   }
-// ]
-
-
-//title, inputs (array)
 
 class Card extends Component {
+  constructor(props){
+    super(props);
 
-  handleDataChange = (item, e) => {
-    // let target = row.title
-    // let character = this.props.character;
-    // let obj = this.props.character.attributes[target];
-    // obj[item] = e.target.value;
-    // character.set(target, obj);
-    // this.props.handleUpdate(character);
-    console.log('item ', item);
-    console.log('e value ', e.target.value);
-    let target = item;
+    this.state = {
+    }
+  }
+
+  //update the correct field from the model on state when a field is changed
+  handleDataChange = (item, idx, index, e) => {
+    // console.log('item ', item);
+    // console.log('e value ', e.target.value);
+    // console.log('idx ', idx);
+    // console.log('index ', index);
+    // console.log('dataatatata ', this.props.data);
     let character = this.props.character;
-    console.log('character ', character);
-    console.log('dataatatata ', this.props.data);
+    let cards = character.get('cards');
+    cards[this.props.cardIndex].rows[index].inputs[item] = e.target.value;
+    character.set('cards', cards);
+    this.props.handleUpdate(character)
   }
 
   render(){
-
+    
+    // creating our fields
     let rowsHtml = this.props.data.map((card, index) => {
 
-      let inputs = card.inputs.map((row) => {
-        console.log(row);
+      let inputsArray = [];
 
-        let inputsArray = [];
-
-        // wizard code to grab object keys and values
-        for (var key in row) {
-          if (row.hasOwnProperty(key)) {
-            // console.log(key + ' -> ' + item[key]);
-            inputsArray.push(key)
-          }
+      // wizard code to grab object keys and values
+      for (var key in card.inputs) {
+        if (card.inputs.hasOwnProperty(key)) {
+          // console.log(key + ' -> ' + item[key]);
+          inputsArray.push(key)
         }
+      }
 
-        let inputsHtml = inputsArray.map((title, idx) => {
-          console.log('idx', idx);
-          console.log('item', row)
-          return(
-            <tr>
-              <td><p>{title}</p></td>
-              <td><input className='inputs' onChange={this.handleDataChange.bind(this, title)} value={row[title]}></input></td>
-            </tr>
-          )
-        })
-
+      let inputsHtml = inputsArray.map((title, idx) => {
+        // console.log('idx', idx);
+        // console.log('item', card.inputs)
         return(
-          <td>
-            {inputsHtml}
-          </td>
+          <tr>
+            <td><p>{title}</p></td>
+            <td><input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]}></input></td>
+          </tr>
         )
       })
 
@@ -114,7 +57,7 @@ class Card extends Component {
           <tbody>
             <tr>
               <td className=''><h4>{card.title}</h4></td>
-              {inputs}
+              {inputsHtml}
 
             </tr>
           </tbody>
@@ -139,9 +82,22 @@ class CharacterSheet extends Component{
     super(props);
 
     this.state = {
-      character: new Character()
+      character: new Character({cards: card}),
+      characterList: new CharacterList()
     }
 
+  }
+
+  componentWillMount(){
+    // grabs all characters from the server and set to state
+    let characterList = this.state.characterList;
+    characterList.fetch().then(() => {
+      this.setState({characterList: characterList});
+    }).then(() => {
+      // set selected character equal to first returned character (also first in drop down list)
+      let selectedCharacter = this.state.characterList.models[0];
+      this.setState({character: selectedCharacter});
+    });
   }
 
   handleNameChange = (e) => {
@@ -156,8 +112,8 @@ class CharacterSheet extends Component{
     this.setState({character: character});
   }
 
-  handleUpdate = (character) => {
-    this.setState({character: character})
+  handleUpdate = (data) => {
+    this.setState({character: data})
   }
 
   handleSubmit = (e) => {
@@ -165,28 +121,73 @@ class CharacterSheet extends Component{
     console.log('before ', this.state.character);
 
     let character = this.state.character;
+    let user = JSON.parse(localStorage.getItem('user'))
+    let objId = user.objectId;
+
+    //setting pointer to currently logged in user as owner
+    character.set('owner', {
+      "__type":"Pointer",
+     "className":"_User",
+     "objectId": objId
+    })
+
     character.save().then(() => {
       this.setState({character: character});
       console.log('uploaded!');
-      this.props.history.push('/mycharacters');
+      // this.props.history.push('/mycharacters');
     });
 
     console.log('after ', this.state.character);
   }
 
+  handleNewCharacter = (e) => {
+    e.preventDefault();
+
+    this.setState({character: new Character({cards: card})});
+  }
+
+  handleCharacterChange = (e) => {
+    e.preventDefault();
+
+    // change selected character based on drop down list
+    let selectedCharacter = this.state.characterList.findWhere({characterName: e.target.value});
+    this.setState({character: selectedCharacter});
+
+  }
+
   render(){
-    let cardsHtml = card.map((item, index) => {
+    let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
       return(
-        <Card key={index} title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate}/>
+        <Card key={index} title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate} cardIndex={index}/>
+      )
+    });
+
+    // populate the dropdown with characters
+    let options = this.state.characterList.models.map((item, index) => {
+      let fields = item.attributes;
+      return(
+        <option key={index} value={fields.characterName}>{fields.characterName}</option>
       )
     });
 
     return(
       <div>
         <h1>Charactersheet Creator</h1>
+
+        <div>
+          <p>Character Select:</p>
+          <select onChange={this.handleCharacterChange}>
+            {options}
+          </select>
+        </div>
+
+        <div>
+          <button onClick={this.handleNewCharacter}>New Character</button>
+        </div>
+
           <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleNameChange} placeholder='character name'></input>
-            <input onChange={this.handleClassChange} placeholder='character class'></input>
+            <input onChange={this.handleNameChange} placeholder='character name' value={this.state.character.get('characterName')}></input>
+            <input onChange={this.handleClassChange} placeholder='character class' value={this.state.character.get('characterClass')}></input>
             {cardsHtml}
             <input type='submit'></input>
           </form>

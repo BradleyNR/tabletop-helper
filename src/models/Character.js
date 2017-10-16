@@ -11,7 +11,7 @@ let Character = Backbone.Model.extend({
     owner: '',
     cards: [{}]
   },
-  urlRoot: PARSE_URL + '/classes/CharacterSheets',
+  urlRoot: PARSE_URL + '/classes/CharacterSheet',
   save: function(key, val, options){
     delete this.attributes.createdAt;
     delete this.attributes.updatedAt;
@@ -22,7 +22,7 @@ let Character = Backbone.Model.extend({
 
 let CharacterList = Backbone.Collection.extend({
   model: Character,
-  url: PARSE_URL + '/classes/CharacterSheets',
+  url: PARSE_URL + '/classes/CharacterSheet',
   // parse is a built in method
   parse: function(data){
     return data.results;
@@ -30,18 +30,3 @@ let CharacterList = Backbone.Collection.extend({
 })
 
 export {Character as default, CharacterList};
-
-
-
-//
-// 0spells: {},
-// 1spells: {},
-// 2spells: {},
-// 3spells: {},
-// 4spells: {},
-// 5spells: {},
-// 6spells: {},
-// 1weapon: {},
-// 2weapon: {},
-// 3weapon: {},
-// 4weapon: {}
