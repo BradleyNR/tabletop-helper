@@ -109,83 +109,83 @@ let card = [
     title: 'Skills',
     rows: [
       {
-        title: 'acrobatics',
+        title: 'Acrobatics',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'atheletics',
+        title: 'Atheletics',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'bluff',
+        title: 'Bluff',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'computers',
+        title: 'Computers',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'culture',
+        title: 'Culture',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'diplomacy',
+        title: 'Diplomacy',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'disguise',
+        title: 'Disguise',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'engineering',
+        title: 'Engineering',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'intimidate',
+        title: 'Intimidate',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'lifeScience',
+        title: 'life Science',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'medicine',
+        title: 'Medicine',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'mysticism',
+        title: 'Mysticism',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'perception',
+        title: 'Perception',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'physicalScience',
+        title: 'Physical Science',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'profession',
+        title: 'Profession',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'profession',
+        title: 'Profession 2',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'senseMotive',
+        title: 'SenseMotive',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'sleightOfHand',
+        title: 'SleightOfHand',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'stealth',
+        title: 'Stealth',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       },
       {
-        title: 'survival',
+        title: 'Survival',
         inputs: {'Total': '', 'Ranks': '', 'Class Bonus': '', 'Ability Mod': '', 'Misc Mod': ''}
       }
     ]

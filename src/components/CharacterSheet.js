@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 
+// Components
 import Character, {CharacterList} from '../models/Character';
 import ImageUpload from './ImageUpload';
+// Messages
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+// Data
 import card from '../models/game_data/card';
 import PARSE_URL, {HEADERS} from '../parse.js';
 
+// jQuery
 var $ = window.$ = require('jquery');
 
 
@@ -74,6 +81,11 @@ class Card extends Component {
     )
   }
 }
+
+
+
+
+
 
 
 class CharacterSheet extends Component{
@@ -154,7 +166,9 @@ class CharacterSheet extends Component{
       characterList.add(character);
       this.setState({character: character, characterList: characterList});
       console.log('uploaded!');
-      // this.props.history.push('/mycharacters');
+
+      //success message popup!
+      toast.success("Character sheet updated!");
     });
 
     console.log('after ', this.state.character);
@@ -177,22 +191,24 @@ class CharacterSheet extends Component{
   }
 
   handleImage = (imageData) => {
-    console.log(imageData);
+    console.log('image data ', imageData);
     fetch(PARSE_URL + '/files/' + imageData.name, {
       headers: HEADERS,
       // binary data to server
-      body: imageData.pic,
+      body: imageData,
       method: 'POST'
     }).then((resp) => {
       return resp.json();
     }).then((message) => {
-      console.log('book posted ', message);
+
       //take url and put on character model
       let character = this.state.character;
       character.set('imageUrl', message.url);
       this.setState({character: character});
+      toast.success("Image added to character sheet. Don't forget to submit changes!");
     });
   }
+
 
   render(){
     let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
@@ -209,6 +225,8 @@ class CharacterSheet extends Component{
       )
     });
 
+
+
     return(
       <div>
         <h1>Charactersheet Creator</h1>
@@ -220,18 +238,25 @@ class CharacterSheet extends Component{
           </select>
         </div>
 
-        <div>
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.handleNameChange} placeholder='character name' value={this.state.character.get('characterName')}></input>
+          <input onChange={this.handleClassChange} placeholder='character class' value={this.state.character.get('characterClass')}></input>
           <button onClick={this.handleNewCharacter}>New Character</button>
-        </div>
+          <input type='submit' value='Submit Changes'></input>
+          {cardsHtml}
+        </form>
 
-          <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleNameChange} placeholder='character name' value={this.state.character.get('characterName')}></input>
-            <input onChange={this.handleClassChange} placeholder='character class' value={this.state.character.get('characterClass')}></input>
-            {cardsHtml}
-            <input type='submit'></input>
-          </form>
+        <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
 
-          <ImageUpload handleImage={this.handleImage}/>
+        <ToastContainer
+          position="top-right"
+          type="success"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnHover
+        />
 
       </div>
     )

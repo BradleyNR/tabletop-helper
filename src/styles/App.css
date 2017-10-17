@@ -10,3 +10,13 @@
 
 .inputs {
 }
+
+.character-image {
+  height: 30%;
+  width: 30%;
+  border: 1px solid #000;
+}
+
+td {
+  padding: 0;
+}

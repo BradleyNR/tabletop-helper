@@ -12,7 +12,6 @@ class ImageUpload extends Component {
     };
   }
 
-
   handleFilenameChange = (e) => {
     e.preventDefault();
     this.setState({filename: e.target.value});
@@ -33,6 +32,7 @@ class ImageUpload extends Component {
     let reader = new FileReader();
     let file = e.target.files[0];
     this.setState({imageFile: file});
+    console.log('File ', file);
 
     // base64 and state
     reader.onloadend = () => {
@@ -46,7 +46,7 @@ class ImageUpload extends Component {
       <div className=''>
           <div className=''>
             <div className=''>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
                 <label htmlFor='image' className=''>Character Portrait</label>
                 <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
                 <label htmlFor='file'>Choose an Image</label>
@@ -56,7 +56,8 @@ class ImageUpload extends Component {
             </div>
 
             <div className='image-preview-area col-md-3'>
-              {this.state.imagePreview ? <img src={this.state.imagePreview} className='' alt='Character Portrait'/> : null}
+              {this.state.imagePreview ? <img src={this.state.imagePreview} className='character-image' alt='Character Portrait'/> : null}
+              {this.props.uploadedImage ? <img src={this.props.uploadedImage} className='character-image' alt='Character Portrait'/> : null}
             </div>
 
           </div>
