@@ -1,3 +1,16 @@
+.main-title {
+  font-size: 100px;
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.secondary-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .cards {
   border: 1px solid #000;
   width: 90%;

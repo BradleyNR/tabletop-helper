@@ -214,20 +214,21 @@ class CharacterSheet extends Component{
 
     return(
       <div>
-        <h1>Charactersheet Creator</h1>
 
         <div className='creator twelve columns'>
-
-          <div className='two columns header-control'>
-            <p>Character Select:</p>
-            <select onChange={this.handleCharacterChange}>
-              {options}
-            </select>
-          </div>
 
           <form onSubmit={this.handleSubmit}>
 
             <div className='row'>
+
+              <h1 className='secondary-title'>Charactersheet Creator</h1>
+
+              <div className='two columns header-control'>
+                <p>Character Select:</p>
+                <select onChange={this.handleCharacterChange}>
+                  {options}
+                </select>
+              </div>
 
               <div className='three columns header-control'>
                 <label htmlFor='charName'>Character Name:</label>
@@ -239,9 +240,7 @@ class CharacterSheet extends Component{
               </div>
               <div className='two columns header-control'>
                 <button onClick={this.handleNewCharacter}>New Character</button>
-              </div>
-              <div className='two columns header-control'>
-                <input type='submit' value='Submit Changes'></input>
+                <input type='submit' className='button button-primary' value='Submit Changes'></input>
               </div>
 
             </div>
