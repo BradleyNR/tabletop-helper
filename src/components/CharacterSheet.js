@@ -18,18 +18,10 @@ var $ = window.$ = require('jquery');
 class Card extends Component {
   constructor(props){
     super(props);
-
-    this.state = {
-    }
   }
 
   //update the correct field from the model on state when a field is changed
   handleDataChange = (item, idx, index, e) => {
-    // console.log('item ', item);
-    // console.log('e value ', e.target.value);
-    // console.log('idx ', idx);
-    // console.log('index ', index);
-    // console.log('dataatatata ', this.props.data);
     let character = this.props.character;
     let cards = character.get('cards');
     cards[this.props.cardIndex].rows[index].inputs[item] = e.target.value;
@@ -38,7 +30,6 @@ class Card extends Component {
   }
 
   render(){
-
     // creating our fields
     let rowsHtml = this.props.data.map((card, index) => {
 
@@ -66,13 +57,13 @@ class Card extends Component {
             <tr>
               <td className=''><h4>{card.title}</h4></td>
               {inputsHtml}
-
             </tr>
           </tbody>
         </table>
       )
     });
 
+    // return from Card component
     return (
       <div className='cards'>
         <h1>{this.props.title}</h1>
@@ -83,11 +74,6 @@ class Card extends Component {
 }
 
 
-
-
-
-
-
 class CharacterSheet extends Component{
   constructor(props){
     super(props);
@@ -96,7 +82,6 @@ class CharacterSheet extends Component{
       character: new Character({cards: card}),
       characterList: new CharacterList()
     }
-
   }
 
   componentWillMount(){
@@ -231,20 +216,42 @@ class CharacterSheet extends Component{
       <div>
         <h1>Charactersheet Creator</h1>
 
-        <div>
-          <p>Character Select:</p>
-          <select onChange={this.handleCharacterChange}>
-            {options}
-          </select>
-        </div>
+        <div className='creator twelve columns'>
 
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleNameChange} placeholder='character name' value={this.state.character.get('characterName')}></input>
-          <input onChange={this.handleClassChange} placeholder='character class' value={this.state.character.get('characterClass')}></input>
-          <button onClick={this.handleNewCharacter}>New Character</button>
-          <input type='submit' value='Submit Changes'></input>
-          {cardsHtml}
-        </form>
+          <div className='two columns header-control'>
+            <p>Character Select:</p>
+            <select onChange={this.handleCharacterChange}>
+              {options}
+            </select>
+          </div>
+
+          <form onSubmit={this.handleSubmit}>
+
+            <div className='row'>
+
+              <div className='three columns header-control'>
+                <label htmlFor='charName'>Character Name:</label>
+                <input onChange={this.handleNameChange} className='char-detail-input' id='charName' placeholder='character name' value={this.state.character.get('characterName')}></input>
+              </div>
+              <div className='three columns header-control'>
+                <label htmlFor='charClass'>Character Class:</label>
+                <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')}></input>
+              </div>
+              <div className='two columns header-control'>
+                <button onClick={this.handleNewCharacter}>New Character</button>
+              </div>
+              <div className='two columns header-control'>
+                <input type='submit' value='Submit Changes'></input>
+              </div>
+
+            </div>
+
+            <div className=''>
+              {cardsHtml}
+            </div>
+          </form>
+
+        </div>
 
         <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
 

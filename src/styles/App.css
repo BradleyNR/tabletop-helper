@@ -1,14 +1,6 @@
 .cards {
   border: 1px solid #000;
-}
-
-.flex {
-  width: 100vw;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.inputs {
+  width: 45%;
 }
 
 .character-image {
@@ -19,4 +11,12 @@
 
 td {
   padding: 0;
+}
+
+.header-control {
+  height: 100px;
+}
+
+.char-detail-input {
+  width: 100%;
 }
