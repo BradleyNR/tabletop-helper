@@ -9,7 +9,8 @@ let Character = Backbone.Model.extend({
     characterName: '',
     characterClass: '',
     owner: '',
-    cards: [{}]
+    cards: [{}],
+    imageUrl: ''
   },
   urlRoot: PARSE_URL + '/classes/CharacterSheet',
   save: function(key, val, options){

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import Character, {CharacterList} from '../models/Character';
+import ImageUpload from './ImageUpload';
 import card from '../models/game_data/card';
+import PARSE_URL, {HEADERS} from '../parse.js';
 
 var $ = window.$ = require('jquery');
 
@@ -174,6 +176,24 @@ class CharacterSheet extends Component{
 
   }
 
+  handleImage = (imageData) => {
+    console.log(imageData);
+    fetch(PARSE_URL + '/files/' + imageData.name, {
+      headers: HEADERS,
+      // binary data to server
+      body: imageData.pic,
+      method: 'POST'
+    }).then((resp) => {
+      return resp.json();
+    }).then((message) => {
+      console.log('book posted ', message);
+      //take url and put on character model
+      let character = this.state.character;
+      character.set('imageUrl', message.url);
+      this.setState({character: character});
+    });
+  }
+
   render(){
     let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
       return(
@@ -210,6 +230,9 @@ class CharacterSheet extends Component{
             {cardsHtml}
             <input type='submit'></input>
           </form>
+
+          <ImageUpload handleImage={this.handleImage}/>
+
       </div>
     )
   }
