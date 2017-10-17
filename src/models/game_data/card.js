@@ -195,31 +195,31 @@ let card = [
     rows: [
       {
         title: '0-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '1-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '2-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '3-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '4-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '5-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
       {
         title: '6-level Spells',
-        inputs: {'Known': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
+        inputs: {'Known': '', 'Used': '', 'Name 1': '', 'Name 2': '', 'Name 3': '', 'Name 4': '', 'Name 5': '', 'Name 6': ''}
       },
     ]
   },

@@ -45,7 +45,7 @@ class Card extends Component {
       let inputsHtml = inputsArray.map((title, idx) => {
         return(
           <td key={idx}>
-            <p>{title}</p>
+            <p className='input-title'>{title}</p>
             <input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]}></input>
           </td>
         )
@@ -55,7 +55,7 @@ class Card extends Component {
         <table className='rows'>
           <tbody>
             <tr>
-              <td className=''><h4>{card.title}</h4></td>
+              <td className='row-title-box'><h4 className='row-title'>{card.title}</h4></td>
               {inputsHtml}
             </tr>
           </tbody>
