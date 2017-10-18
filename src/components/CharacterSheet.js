@@ -165,6 +165,18 @@ class CharacterSheet extends Component{
     this.setState({character: new Character({cards: card})});
   }
 
+  handleDeleteCharacter = (e) => {
+    e.preventDefault();
+
+    let currentChar = this.state.character;
+
+    currentChar.destroy({success: function(model, response) {
+      toast.warning("Character sheet deleted!");
+    }});
+
+    this.setState({character: new Character({cards: card})});
+  }
+
   newGame = () => {
     this.props.history.push('/game');
   }
@@ -234,18 +246,23 @@ class CharacterSheet extends Component{
                 </select>
               </div>
 
-              <div className='three columns header-control'>
+              <div className='two columns header-control'>
                 <label htmlFor='charName'>Character Name:</label>
                 <input onChange={this.handleNameChange} className='char-detail-input' id='charName' placeholder='character name' value={this.state.character.get('characterName')} type='text'></input>
               </div>
-              <div className='three columns header-control'>
+              <div className='two columns header-control'>
                 <label htmlFor='charClass'>Character Class:</label>
                 <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
               </div>
               <div className='two columns header-control'>
-                <button onClick={this.handleNewCharacter}>New Character</button>
                 <button onClick={this.newGame}>New Game</button>
-                <input type='submit' className='button button-primary' value='Submit Changes'></input>
+              </div>
+              <div className='two columns header-control'>
+                <button onClick={this.handleNewCharacter}>New Character</button>
+                <input type='submit' className='button button-primary submit-changes' value='Submit Changes'></input>
+                <div className='delete-container'>
+                <button className='delete-button' onClick={this.handleDeleteCharacter}>Delete Character</button>
+                </div>
               </div>
 
             </div>

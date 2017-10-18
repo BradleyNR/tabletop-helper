@@ -71,6 +71,15 @@ td {
   height: 150px;
 }
 
+.delete-button {
+  background-color: red;
+  color: #FFF;
+}
+
+.delete-container {
+}
+
+
 .char-detail-input {
   width: 100%;
 }
