@@ -18,6 +18,11 @@
   padding: 30px;
 }
 
+.card-title {
+  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
+}
+
 .input-title {
   font-weight: bold;
   margin-left: 30px;
@@ -46,12 +51,16 @@
   border: 1px solid #000;
 }
 
+/*each row*/
+table {
+}
+
 td {
   padding: 0;
 }
 
 .header-control {
-  height: 100px;
+  height: 150px;
 }
 
 .char-detail-input {

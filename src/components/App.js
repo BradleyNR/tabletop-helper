@@ -4,6 +4,7 @@ import '../styles/App.css';
 
 import Accounts from './Accounts';
 import CharacterSheet from './CharacterSheet';
+import GamePage from './GamePage';
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
        <main>
          <Route path='/' exact component={Accounts} />
          <Route path='/sheets' exact component={CharacterSheet} />
+         <Route path='/game' exact component={GamePage} />
          {/* <Redirect to="/" /> */}
        </main>
      </Switch>

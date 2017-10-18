@@ -46,7 +46,7 @@ class Card extends Component {
         return(
           <td key={idx}>
             <p className='input-title'>{title}</p>
-            <input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]}></input>
+            <input className='inputs' onChange={this.handleDataChange.bind(this, title, idx, index)} value={card.inputs[title]} type='text'></input>
           </td>
         )
       })
@@ -66,7 +66,7 @@ class Card extends Component {
     // return from Card component
     return (
       <div className='cards'>
-        <h1>{this.props.title}</h1>
+        <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
     )
@@ -165,6 +165,10 @@ class CharacterSheet extends Component{
     this.setState({character: new Character({cards: card})});
   }
 
+  newGame = () => {
+    this.props.history.push('/game');
+  }
+
   // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
   handleCharacterChange = (e) => {
     e.preventDefault();
@@ -224,22 +228,23 @@ class CharacterSheet extends Component{
               <h1 className='secondary-title'>Charactersheet Creator</h1>
 
               <div className='two columns header-control'>
-                <p>Character Select:</p>
-                <select onChange={this.handleCharacterChange}>
+                <label htmlFor='character-select'>Character Select:</label>
+                <select onChange={this.handleCharacterChange} id='character-select'>
                   {options}
                 </select>
               </div>
 
               <div className='three columns header-control'>
                 <label htmlFor='charName'>Character Name:</label>
-                <input onChange={this.handleNameChange} className='char-detail-input' id='charName' placeholder='character name' value={this.state.character.get('characterName')}></input>
+                <input onChange={this.handleNameChange} className='char-detail-input' id='charName' placeholder='character name' value={this.state.character.get('characterName')} type='text'></input>
               </div>
               <div className='three columns header-control'>
                 <label htmlFor='charClass'>Character Class:</label>
-                <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')}></input>
+                <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
               </div>
               <div className='two columns header-control'>
                 <button onClick={this.handleNewCharacter}>New Character</button>
+                <button onClick={this.newGame}>New Game</button>
                 <input type='submit' className='button button-primary' value='Submit Changes'></input>
               </div>
 
