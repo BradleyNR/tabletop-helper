@@ -55,7 +55,7 @@ class Card extends Component {
         <table className='rows'>
           <tbody>
             <tr>
-              <td className='row-title-box'><h4 className='row-title'>{card.title}</h4></td>
+              {card.title ? <td className='row-title-box'><h4 className='row-title'>{card.title}</h4></td> : null}
               {inputsHtml}
             </tr>
           </tbody>
@@ -65,7 +65,7 @@ class Card extends Component {
 
     // return from Card component
     return (
-      <div className='cards'>
+      <div className='cards six columns'>
         <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
@@ -250,7 +250,7 @@ class CharacterSheet extends Component{
 
             </div>
 
-            <div className=''>
+            <div className='cards-container'>
               {cardsHtml}
             </div>
           </form>

@@ -11,9 +11,14 @@
   margin-bottom: 40px;
 }
 
+/*contains all cards*/
+.cards-container {
+}
+
+/*each card*/
 .cards {
   border: 1px solid #000;
-  width: 90%;
+  /*width: 50%;*/
   margin: auto;
   padding: 30px;
 }
@@ -25,14 +30,12 @@
 
 .input-title {
   font-weight: bold;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: auto;
 }
 
 .inputs {
-  width: auto;
-  margin-left: 30px;
-  margin-right: 30px;
+  width: 100%;
+  margin: auto;
 }
 
 .row-title {
@@ -42,7 +45,7 @@
 }
 
 .row-title-box {
-  width: 150px;
+  padding: 10px;
 }
 
 .character-image {
@@ -53,7 +56,11 @@
 
 /*each row*/
 table {
+  table-layout:fixed;
+  width:100%;
 }
+
+
 
 td {
   padding: 0;
