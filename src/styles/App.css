@@ -29,8 +29,9 @@
 }
 
 .input-title {
-  font-weight: bold;
   margin: auto;
+  text-align: center;
+  font-size: 12px;
 }
 
 .inputs {
@@ -40,7 +41,7 @@
 
 .row-title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   margin: auto;
 }
 
