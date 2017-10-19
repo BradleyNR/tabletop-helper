@@ -13,10 +13,36 @@ class GamePage extends Component {
 
     this.state = {
       game: new Game(),
+      gameList: new GameList(),
+      selectedGame: new Game(),
       title: '',
       description: '',
       gameVisible: false
     }
+  }
+
+  componentWillMount(){
+    let gameList = this.state.gameList;
+    // grabbing the current objId from the logged in user
+    let user = JSON.parse(localStorage.getItem('user'))
+    let objId = user.objectId;
+    let pointer = {
+       "__type":"Pointer",
+       "className":"_User",
+       "objectId": objId
+     };
+
+     // grabbing game lists associated with logged in user
+    gameList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
+      if (data) {
+        console.log('Games Acquired');
+        this.setState({gameList: gameList, selectedGame: gameList.models[0]});
+        console.log('gamelist ', this.state.gameList);
+      } else {
+        console.log('No data received');
+        this.setState({gameList: new GameList(), game: new Game()})
+      }
+    });
   }
 
   handleGameCreate = (e) => {
@@ -32,6 +58,8 @@ class GamePage extends Component {
      "className":"_User",
      "objectId": objId
     });
+
+    game.set('gameVisible', this.state.gameVisible);
 
     console.log(this.state.game);
 
@@ -57,27 +85,63 @@ class GamePage extends Component {
   }
 
   handleRadio = (e) => {
-    let game = this.state.game;
     //force string to boolean for state
-    // TODO: THIS IS GIVING THE OPPOSITE VALUE, but only after you have changed it once
-    // ex --> defaults to false, if you hit the 'yes" radio, it remains false, then if you hit 'no' it changes to true
     this.setState({gameVisible: e.target.value === 'true'});
-    game.set('gameVisible', this.state.gameVisible);
-    this.setState({game: game});
-    console.log(this.state.gameVisible);
   }
 
-  handleCheckState = (e) => {
+  handleDelete = (e) => {
     e.preventDefault();
-    console.log(this.state.game);
+    console.log('This will delete eventually');
+  }
+
+  // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
+  handleGameChange = (e) => {
+    e.preventDefault();
+    // change selected character based on drop down list
+    let selectedGame = this.state.gameList.findWhere({title: e.target.value});
+    this.setState({selectedGame: selectedGame});
+    let title = this.state.game.get('title');
+    let description = this.state.game.get('description');
+    let gameVisible = this.state.game.get('gameVisible');
+    this.setState({title: title, description: description, gameVisible: gameVisible})
+  }
+
+  editSelected = (e) => {
+    e.preventDefault();
+    let title = this.state.selectedGame.get('title');
+    let description = this.state.selectedGame.get('description');
+    let gameVisible = this.state.selectedGame.get('gameVisible');
+    this.setState({game: this.state.selectedGame, title: title, description: description, gameVisible: gameVisible})
+  }
+
+  newGame = (e) => {
+    e.preventDefault();
+    this.setState({game: new Game(), selectedGame: new Game(), title: '', description: '', gameVisible: false});
   }
 
   render(){
 
+    // populate the dropdown with games
+    let options = this.state.gameList.models.map((item, index) => {
+      let fields = item.attributes;
+      return(
+        <option key={index} value={fields.title}>{fields.title}</option>
+      )
+    });
+
     return(
       <div className='ten columns offset-by-one'>
-        <h1>Game</h1>
         <h2>Create a new gameplay session!</h2>
+
+        <div className='row'>
+          <label htmlFor='game-select'>Game Select:</label>
+          <select onChange={this.handleGameChange} id='game-select' className='four columns'>
+            {options}
+          </select>
+          <button onClick={this.editSelected} className='three columns'>Edit Selected</button>
+          <button onClick={this.newGame} className='three columns'>New Game</button>
+        </div>
+
         <form className='twelve columns' onSubmit={this.handleGameCreate}>
           <label htmlFor='game-title'>Game Title:</label>
           <input onChange={this.handleTitle} type='text' className='twelve columns' id='game-title' value={this.state.title}></input>
@@ -92,7 +156,7 @@ class GamePage extends Component {
             <span className="label-body">No</span>
           </label>
 
-          <button onClick={this.handleCheckState}>Check State</button>
+          <button onClick={this.handleDelete} className='delete-button'>Delete Game</button>
 
           <div className='row'>
             <input className='button button-primary' type='submit' value='Create Game'></input>
