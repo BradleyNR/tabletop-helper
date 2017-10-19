@@ -64,8 +64,9 @@ class GamePage extends Component {
     console.log(this.state.game);
 
     game.save().then(() => {
+      let gameList = this.state.gameList;
+      gameList.add(game);
       this.setState({game: new Game(), title: '', description: '', gameVisible: false})
-      // TODO: Show list of games you own
 
       toast.success("Game Created!");
     })
@@ -91,7 +92,13 @@ class GamePage extends Component {
 
   handleDelete = (e) => {
     e.preventDefault();
-    console.log('This will delete eventually');
+    let game = this.state.game;
+    let gameList = this.state.gameList;
+    game.destroy({success: (model, response) => {
+      toast.warning('Game Deleted!');
+      gameList.remove(game);
+      this.setState({title: '', description: '', gameVisible: false, game: new Game()})
+    }})
   }
 
   // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
@@ -135,10 +142,11 @@ class GamePage extends Component {
 
         <div className='row'>
           <label htmlFor='game-select'>Game Select:</label>
-          <select onChange={this.handleGameChange} id='game-select' className='four columns'>
+          <select onChange={this.handleGameChange} id='game-select' className='three columns'>
             {options}
           </select>
-          <button onClick={this.editSelected} className='three columns'>Edit Selected</button>
+          <button onClick={this.editSelected} className='two columns'>Edit Selected</button>
+          <button onClick={this.handleDelete} className='two columns delete-button'>Delete Game</button>
           <button onClick={this.newGame} className='three columns'>New Game</button>
         </div>
 
@@ -156,10 +164,8 @@ class GamePage extends Component {
             <span className="label-body">No</span>
           </label>
 
-          <button onClick={this.handleDelete} className='delete-button'>Delete Game</button>
-
           <div className='row'>
-            <input className='button button-primary' type='submit' value='Create Game'></input>
+            <input className='button button-primary' type='submit' value='Apply Changes'></input>
           </div>
         </form>
 
