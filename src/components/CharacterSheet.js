@@ -151,7 +151,6 @@ class CharacterSheet extends Component{
       characterList.add(character);
       this.setState({character: character, characterList: characterList});
       console.log('uploaded!');
-
       //success message popup!
       toast.success("Character sheet updated!");
     });
@@ -169,9 +168,11 @@ class CharacterSheet extends Component{
     e.preventDefault();
 
     let currentChar = this.state.character;
+    let characterList = this.state.characterList;
 
     currentChar.destroy({success: function(model, response) {
       toast.warning("Character sheet deleted!");
+      characterList.remove(currentChar);
     }});
 
     this.setState({character: new Character({cards: card})});

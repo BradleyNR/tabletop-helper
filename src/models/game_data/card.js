@@ -29,6 +29,28 @@ let card = [
     ]
   },
   {
+    title: 'Health and Resolve',
+    rows: [
+      {
+        title: 'Total HP',
+        inputs: {'Stamina Points': '', 'Hit Points': '', 'Resolve Points': ''}
+      },
+      {
+        title: 'Current HP',
+        inputs: {'Stamina Points': '', 'Hit Points': '', 'Resolve Points': ''}
+      }
+    ]
+  },
+  {
+    title: 'Initiative',
+    rows: [
+      {
+        title: 'Initiative',
+        inputs: {'Total': '', 'Dex Modifier': '', 'Misc Modifier': ''}
+      }
+    ]
+  },
+  {
     title: 'Armor Class',
     rows: [
       {
@@ -63,28 +85,6 @@ let card = [
       {
         title: 'Thrown',
         inputs: {'Total': '', 'Base Attack Bonus': '', 'STR Modifier': '', 'Misc Modifier': ''}
-      }
-    ]
-  },
-  {
-    title: 'Health and Resolve',
-    rows: [
-      {
-        title: 'Total HP',
-        inputs: {'Stamina Points': '', 'Hit Points': '', 'Resolve Points': ''}
-      },
-      {
-        title: 'Current HP',
-        inputs: {'Stamina Points': '', 'Hit Points': '', 'Resolve Points': ''}
-      }
-    ]
-  },
-  {
-    title: 'Initiative',
-    rows: [
-      {
-        title: 'Initiative',
-        inputs: {'Total': '', 'Dex Modifier': '', 'Misc Modifier': ''}
       }
     ]
   },
