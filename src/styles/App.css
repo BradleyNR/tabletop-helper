@@ -6,6 +6,56 @@
   text-align: center;
 }
 
+.home-nav-button {
+  height: 300px;
+  width: 300px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.home-nav-button p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.black-text {
+  color: #000;
+}
+
+.white-text {
+  color: #FFF;
+}
+
+.create-character-button {
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/images/alien-tank.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.create-character-button:hover {
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/images/alien-tank.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.create-game-button {
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/images/robot.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.create-game-button:hover {
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/images/robot.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home-text {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 14px;
+}
+
 .secondary-title {
   text-align: center;
   margin-bottom: 40px;

@@ -178,10 +178,6 @@ class CharacterSheet extends Component{
     this.setState({character: new Character({cards: card})});
   }
 
-  newGame = () => {
-    this.props.history.push('/game');
-  }
-
   // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
   handleCharacterChange = (e) => {
     e.preventDefault();
@@ -256,7 +252,7 @@ class CharacterSheet extends Component{
                 <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
               </div>
               <div className='two columns header-control'>
-                <button onClick={this.newGame}>New Game</button>
+                <div className='button'><a href='/home'>Go Home</a></div>
               </div>
               <div className='two columns header-control'>
                 <button onClick={this.handleNewCharacter}>New Character</button>

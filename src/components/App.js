@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import '../styles/App.css';
 
+import Home from './Home';
 import Accounts from './Accounts';
 import CharacterSheet from './CharacterSheet';
 import GamePage from './GamePage';
@@ -14,6 +15,7 @@ class App extends Component {
      <Switch>
        <main>
          <Route path='/' exact component={Accounts} />
+         <Route path='/home' exact component={Home} />
          <Route path='/sheets' exact component={CharacterSheet} />
          <Route path='/game' exact component={GamePage} />
          {/* <Redirect to="/" /> */}

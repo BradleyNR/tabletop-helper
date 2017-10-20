@@ -126,11 +126,6 @@ class GamePage extends Component {
     this.setState({game: new Game(), selectedGame: new Game(), title: '', description: '', gameVisible: false});
   }
 
-  handleGoBack = (e) => {
-    e.preventDefault();
-    this.props.history.push('/sheets');
-  }
-
   render(){
 
     // populate the dropdown with games
@@ -143,7 +138,7 @@ class GamePage extends Component {
 
     return(
       <div className='ten columns offset-by-one'>
-        <button onClick={this.handleGoBack}>Back to Character Sheet</button>
+        <div className='button'><a href='/home'>Go Home</a></div>
         <h2>Create a new gameplay session!</h2>
 
         <div className='row'>
