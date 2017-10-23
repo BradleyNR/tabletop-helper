@@ -64,7 +64,7 @@ class Accounts extends Component{
     // If username and password aren't blank, create a user, else throw error
     User.login({username: this.state.loginUsername, password: this.state.loginPassword}).then(() => {
       this.setState({loginUsername: '', loginPassword: ''});
-      this.props.history.push('/sheets');
+      this.props.history.push('/home');
     });
   }
 

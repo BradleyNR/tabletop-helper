@@ -111,8 +111,6 @@ table {
   width:100%;
 }
 
-
-
 td {
   padding: 0;
 }
@@ -125,10 +123,6 @@ td {
   background-color: red;
   color: #FFF;
 }
-
-.delete-container {
-}
-
 
 .char-detail-input {
   width: 100%;

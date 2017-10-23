@@ -6,6 +6,7 @@ import Home from './Home';
 import Accounts from './Accounts';
 import CharacterSheet from './CharacterSheet';
 import GamePage from './GamePage';
+import JoinGame from './JoinGame';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
          <Route path='/home' exact component={Home} />
          <Route path='/sheets' exact component={CharacterSheet} />
          <Route path='/game' exact component={GamePage} />
+         <Route path='/joingame' exact component={JoinGame} />
          {/* <Redirect to="/" /> */}
        </main>
      </Switch>

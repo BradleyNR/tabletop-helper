@@ -43,8 +43,8 @@ class ImageUpload extends Component {
 
   render() {
     return (
-      <div className='image-upload-container'>
-            <div className=''>
+      <div>
+            <div className='image-upload-container'>
               <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
                 <label htmlFor='image' className=''>Character Portrait</label>
                 <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
@@ -58,7 +58,6 @@ class ImageUpload extends Component {
               {this.state.imagePreview ? <img src={this.state.imagePreview} className='character-image' alt='Character Portrait'/> : null}
               {this.props.uploadedImage ? <img src={this.props.uploadedImage} className='character-image' alt='Character Portrait'/> : null}
             </div>
-
       </div>
     )
   }
