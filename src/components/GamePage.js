@@ -17,7 +17,8 @@ class GamePage extends Component {
       selectedGame: new Game(),
       title: '',
       description: '',
-      gameVisible: false
+      gameVisible: false,
+      players: []
     }
   }
 
@@ -118,7 +119,8 @@ class GamePage extends Component {
     let title = this.state.selectedGame.get('title');
     let description = this.state.selectedGame.get('description');
     let gameVisible = this.state.selectedGame.get('gameVisible');
-    this.setState({game: this.state.selectedGame, title: title, description: description, gameVisible: gameVisible})
+    let players = this.state.selectedGame.get('sheets');
+    this.setState({game: this.state.selectedGame, title: title, description: description, gameVisible: gameVisible, players: players});
   }
 
   newGame = (e) => {
@@ -135,6 +137,15 @@ class GamePage extends Component {
         <option key={index} value={fields.title}>{fields.title}</option>
       )
     });
+
+    let playerCards = this.state.players.map((item, index) => {
+      return(
+      <div className='four columns player-cards'>
+        <p>Character Name: {item.characterName}</p>
+        <p>Character Class: {item.characterClass}</p>
+      </div>
+    )
+    })
 
     return(
       <div className='ten columns offset-by-one'>
@@ -172,6 +183,8 @@ class GamePage extends Component {
             <input className='button button-primary' type='submit' value='Apply Changes'></input>
           </div>
         </form>
+
+        {playerCards}
 
         <ToastContainer
           position="top-right"

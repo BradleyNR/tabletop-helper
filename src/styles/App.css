@@ -132,3 +132,8 @@ td {
 .char-detail-input {
   width: 100%;
 }
+
+.player-cards {
+  border: 1px solid #000;
+  padding: 30px;
+}
