@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 import Character, {CharacterList} from '../models/Character';
 import Game, {GameList} from '../models/Game';
 
+// Messages
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 
 class JoinGame extends Component {
   constructor(props){
@@ -12,7 +16,9 @@ class JoinGame extends Component {
       gameList: new GameList(),
       characterList: new CharacterList(),
       characterNameArray: [],
-      gameNameArray: []
+      gameNameArray: [],
+      selectedGame: '',
+      selectedCharacter: ''
     }
   }
 
@@ -74,13 +80,44 @@ class JoinGame extends Component {
   }
 
   handleCharacterRadio = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
+    this.setState({selectedCharacter: e.target.value})
   }
 
   handleGameRadio = (e) => {
+    this.setState({selectedGame: e.target.value})
+  }
+
+
+  joinGame = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+    console.log(this.state.selectedCharacter, this.state.selectedGame);
+
+    // grabbing model and game that match selected radio inputs
+    if (this.state.selectedCharacter !== '' && this.state.selectedGame !== '') {
+      let selectedCharacterModel = this.state.characterList.findWhere({characterName: this.state.selectedCharacter})
+      let selectedGameModel = this.state.gameList.findWhere({title: this.state.selectedGame});
+
+      // grabbing sheets field from selected game model
+      let sheetArrayInGame = selectedGameModel.get('sheets')
+
+      // pushing data from character sheet into game model and uploading to database
+      sheetArrayInGame.push(selectedCharacterModel.attributes)
+      selectedGameModel.set('sheets', sheetArrayInGame)
+      selectedGameModel.save();
+
+      // sending message
+      toast.success("Game joined! Returning to home screen in 3 seconds");
+
+      // push to home screen once submitted
+      setTimeout(() => {
+        this.props.history.push('/home');
+      }, 3000);
+
+    } else {
+      // error messaging
+
+      toast.error('Please select a character and a game')
+    }
   }
 
   render(){
@@ -106,8 +143,8 @@ class JoinGame extends Component {
 
     return(
       <div>
-
-        <h1>Join Game</h1>
+        <div className='row'><div className='button'><a href='/home'>Go Home</a></div></div>
+        <h1>Join A Game</h1>
 
         <div className='six columns'>
           <label>
@@ -121,6 +158,18 @@ class JoinGame extends Component {
             {gameOptions}
           </label>
         </div>
+
+        <button onClick={this.joinGame}>Join Game</button>
+
+        <ToastContainer
+          position="top-right"
+          type="success"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnHover
+        />
 
       </div>
     )

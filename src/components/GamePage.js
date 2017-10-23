@@ -138,17 +138,20 @@ class GamePage extends Component {
 
     return(
       <div className='ten columns offset-by-one'>
-        <div className='button'><a href='/home'>Go Home</a></div>
-        <h2>Create a new gameplay session!</h2>
+        <div className='row'>
+
+          <div className='button two columns'><a href='/home'>Go Home</a></div>
+          <button onClick={this.newGame} className='three columns'>New Game</button>
+
+        </div>
 
         <div className='row'>
-          <label htmlFor='game-select'>Select a game to edit:</label>
+          <label htmlFor='game-select'>Select a game to view or edit:</label>
           <select onChange={this.handleGameChange} id='game-select' className='three columns'>
             {options}
           </select>
-          <button onClick={this.editSelected} className='two columns'>Edit Selected</button>
+          <button onClick={this.editSelected} className='two columns'>View Selected</button>
           <button onClick={this.handleDelete} className='two columns delete-button'>Delete Game</button>
-          <button onClick={this.newGame} className='three columns'>New Game</button>
         </div>
 
         <form className='twelve columns' onSubmit={this.handleGameCreate}>

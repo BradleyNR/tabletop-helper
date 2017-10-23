@@ -229,6 +229,7 @@ class CharacterSheet extends Component{
       <div>
 
         <div className='creator twelve columns'>
+          <div className='row'><div className='button'><a href='/home'>Go Home</a></div></div>
 
           <form onSubmit={this.handleSubmit}>
 
@@ -250,9 +251,6 @@ class CharacterSheet extends Component{
               <div className='two columns header-control'>
                 <label htmlFor='charClass'>Character Class:</label>
                 <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
-              </div>
-              <div className='two columns header-control'>
-                <div className='button'><a href='/home'>Go Home</a></div>
               </div>
               <div className='two columns header-control'>
                 <button onClick={this.handleNewCharacter}>New Character</button>
