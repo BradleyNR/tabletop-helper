@@ -105,14 +105,14 @@
 }
 
 /*each row*/
-table {
+/*table {
   table-layout:fixed;
   width:100%;
 }
 
 td {
   padding: 0;
-}
+}*/
 
 .header-control {
   height: 150px;
@@ -136,3 +136,14 @@ td {
 .game-player-stat {
   height: 30px;
 }
+
+
+.grid-item {
+  float: left;
+  width: 50%;
+  height: auto;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
+.grid-item--width2 { width: 160px; }
+.grid-item--height2 { height: 140px; }

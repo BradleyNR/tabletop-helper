@@ -17,13 +17,7 @@ import PARSE_URL, {HEADERS} from '../parse.js';
 // jQuery
 var $ = window.$ = require('jquery');
 
-// Masonry Setup
-var container = document.querySelector('#masonry-grid');
-var msnry = new Masonry( container, {
-  // options
-  columnWidth: 200,
-  itemSelector: '.grid-item'
-});
+
 
 
 
@@ -120,6 +114,16 @@ class CharacterSheet extends Component{
         let selectedCharacter = this.state.characterList.models[0];
         this.setState({character: selectedCharacter});
       }
+    });
+  }
+
+  componentDidMount(){
+    // Masonry Setup
+    var container = document.querySelector('#grid');
+    var msnry = new Masonry( container, {
+      // options
+      columnWidth: 1500,
+      itemSelector: '.grid-item'
     });
   }
 
@@ -270,7 +274,7 @@ class CharacterSheet extends Component{
 
             </div>
 
-            <div className='grid'>
+            <div className='grid' id='grid'>
               {cardsHtml}
             </div>
           </form>
