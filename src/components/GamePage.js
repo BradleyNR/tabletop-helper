@@ -140,9 +140,27 @@ class GamePage extends Component {
 
     let playerCards = this.state.players.map((item, index) => {
       return(
-      <div className='four columns player-cards'>
+      <div className='five columns player-cards'>
         <p>Character Name: {item.characterName}</p>
         <p>Character Class: {item.characterClass}</p>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[0].title}</p><p className='five columns'>{item.cards[0].rows[0].inputs.Score}</p>
+        </div>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[1].title}</p><p className='five columns'>{item.cards[0].rows[1].inputs.Score}</p>
+        </div>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[2].title}</p><p className='five columns'>{item.cards[0].rows[2].inputs.Score}</p>
+        </div>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[3].title}</p><p className='five columns'>{item.cards[0].rows[3].inputs.Score}</p>
+        </div>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[4].title}</p><p className='five columns'>{item.cards[0].rows[4].inputs.Score}</p>
+        </div>
+        <div className='row'>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[5].title}</p><p className='five columns'>{item.cards[0].rows[5].inputs.Score}</p>
+        </div>
       </div>
     )
     })

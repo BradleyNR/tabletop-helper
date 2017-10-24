@@ -66,15 +66,9 @@
   margin-bottom: 40px;
 }
 
-/*contains all cards*/
-.cards-container {
-}
-
 /*each card*/
 .cards {
   border: 1px solid #000;
-  /*width: 50%;*/
-  margin: auto;
   padding: 30px;
 }
 
@@ -136,4 +130,9 @@ td {
 .player-cards {
   border: 1px solid #000;
   padding: 30px;
+  border-radius: 3px;
+}
+
+.game-player-stat {
+  height: 30px;
 }

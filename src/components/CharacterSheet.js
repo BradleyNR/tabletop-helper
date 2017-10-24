@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Masonry from 'masonry-layout';
 
 // Components
 import Character, {CharacterList} from '../models/Character';
 import ImageUpload from './ImageUpload';
+import DiceRoller from './DiceRoller';
+
 // Messages
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -14,12 +17,17 @@ import PARSE_URL, {HEADERS} from '../parse.js';
 // jQuery
 var $ = window.$ = require('jquery');
 
+// Masonry Setup
+var container = document.querySelector('#masonry-grid');
+var msnry = new Masonry( container, {
+  // options
+  columnWidth: 200,
+  itemSelector: '.grid-item'
+});
+
+
 
 class Card extends Component {
-  constructor(props){
-    super(props);
-  }
-
   //update the correct field from the model on state when a field is changed
   handleDataChange = (item, idx, index, e) => {
     let character = this.props.character;
@@ -65,7 +73,7 @@ class Card extends Component {
 
     // return from Card component
     return (
-      <div className='cards six columns'>
+      <div className='cards grid-item'>
         <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
@@ -262,7 +270,7 @@ class CharacterSheet extends Component{
 
             </div>
 
-            <div className='cards-container'>
+            <div className='grid'>
               {cardsHtml}
             </div>
           </form>
@@ -270,6 +278,8 @@ class CharacterSheet extends Component{
         </div>
 
         <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
+
+        <DiceRoller />
 
         <ToastContainer
           position="top-right"
