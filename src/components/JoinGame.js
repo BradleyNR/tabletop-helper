@@ -142,24 +142,31 @@ class JoinGame extends Component {
 
 
     return(
-      <div>
-        <div className='row'><div className='button'><a href='/home'>Go Home</a></div></div>
-        <h1>Join A Game</h1>
+      <div className='join-game-main-container'>
+        <div className='row'><div className='button go-home-button two columns offset-by-five'><a href='/home'>Home</a></div></div>
 
-        <div className='six columns'>
-          <label>
-            <p>Select A Character:</p>
-            {characterOptions}
-          </label>
-        </div>
-        <div className='five columns'>
-          <label>
-            <p>Select a game:</p>
-            {gameOptions}
-          </label>
-        </div>
+        <div className='join-game-section'>
+          <h4 className='join-game-header'>Join A Game</h4>
+            <div className='row'>
 
-        <button onClick={this.joinGame}>Join Game</button>
+              <div className='six columns game-select'>
+                <label>
+                  <p>Select A Character:</p>
+                  {characterOptions}
+                </label>
+              </div>
+
+              <div className='six columns game-select'>
+                <label>
+                  <p>Select a game:</p>
+                  {gameOptions}
+                </label>
+              </div>
+
+          </div>
+
+          <button onClick={this.joinGame}>Join Game</button>
+        </div>
 
         <ToastContainer
           position="top-right"

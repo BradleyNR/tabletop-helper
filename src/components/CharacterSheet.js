@@ -120,9 +120,10 @@ class CharacterSheet extends Component{
   componentDidMount(){
     // Masonry Setup
     var container = document.querySelector('#grid');
+    console.log(container);
     var msnry = new Masonry( container, {
       // options
-      columnWidth: 1500,
+      columnWidth: 200,
       itemSelector: '.grid-item'
     });
   }
@@ -219,7 +220,19 @@ class CharacterSheet extends Component{
     });
   }
 
+  render(){
+      var gridItems = (new Array(10)).join(' ').split(' ').map(function(){
+        return <div className="grid-item">Test Item</div>
+      });
 
+      return (
+        <div className='grid' id='grid'>
+          {gridItems}
+        </div>
+      )
+  }
+
+  /*
   render(){
     let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
       return(
@@ -298,6 +311,7 @@ class CharacterSheet extends Component{
       </div>
     )
   }
+  */
 }
 
 
