@@ -169,7 +169,7 @@ class GamePage extends Component {
       <div className='ten columns offset-by-one'>
         <div className='row'>
 
-          <div className='button two columns'><a href='/home'>Go Home</a></div>
+          <div className='button two columns'><a href='/tabletop-helper/home'>Go Home</a></div>
           <button onClick={this.newGame} className='three columns'>New Game</button>
 
         </div>

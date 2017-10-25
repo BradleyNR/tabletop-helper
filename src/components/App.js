@@ -15,11 +15,11 @@ class App extends Component {
     <Router>
      <Switch>
        <main>
-         <Route path='/' exact component={Accounts} />
-         <Route path='/home' exact component={Home} />
-         <Route path='/sheets' exact component={CharacterSheet} />
-         <Route path='/game' exact component={GamePage} />
-         <Route path='/joingame' exact component={JoinGame} />
+         <Route path='/tabletop-helper/' exact component={Accounts} />
+         <Route path='/tabletop-helper/home' exact component={Home} />
+         <Route path='/tabletop-helper/sheets' exact component={CharacterSheet} />
+         <Route path='/tabletop-helper/game' exact component={GamePage} />
+         <Route path='/tabletop-helper/joingame' exact component={JoinGame} />
          {/* <Redirect to="/" /> */}
        </main>
      </Switch>

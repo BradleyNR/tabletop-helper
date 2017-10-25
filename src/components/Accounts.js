@@ -51,7 +51,7 @@ class Accounts extends Component{
     if (this.state.username !== '' && this.state.password !== '') {
       User.signup({username: this.state.username, password: this.state.password}.then(() => {
         this.setState({username: '', password: ''});
-        this.props.history.push('/home');
+        this.props.history.push('/tabletop-helper/home');
       }));
     } else {
       this.setState({errorMessage: 'You must have both a username and password to create an account!'})
@@ -64,7 +64,7 @@ class Accounts extends Component{
     // If username and password aren't blank, create a user, else throw error
     User.login({username: this.state.loginUsername, password: this.state.loginPassword}).then(() => {
       this.setState({loginUsername: '', loginPassword: ''});
-      this.props.history.push('/home');
+      this.props.history.push('/tabletop-helper/home');
     });
   }
 

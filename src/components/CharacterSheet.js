@@ -254,7 +254,7 @@ class CharacterSheet extends Component{
       <div>
 
         <div className='creator twelve columns'>
-          <div className='row'><div className='button'><a href='/home'>Go Home</a></div></div>
+          <div className='row'><div className='button'><a href='/tabletop-helper/home'>Go Home</a></div></div>
 
           <form onSubmit={this.handleSubmit}>
 

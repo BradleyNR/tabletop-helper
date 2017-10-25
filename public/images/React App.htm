@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:3000/joingame -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <link rel="stylesheet" href="./React App_files/normalize.css">
+    <link href="./React App_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./React App_files/skeleton.css">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+</style><style type="text/css">/*base layout header styles*/
+
+.main-title {
+  font-size: 60px;
+  font-family: 'Orbitron', sans-serif;
+  margin: auto;
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #000;
+  border-bottom: 2px solid #90a4ae;
+  color: #FFF;
+}
+
+.home-nav-button {
+  height: 300px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.home-nav-button p {
+  font-size: 90px;
+  font-weight: bold;
+  padding-left: 300px;
+  padding-top: 75px;
+}
+
+.white-text {
+  color: #FFF;
+}
+
+.create-character-button {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 100, 0.4)) ), url('/images/alien-tank.jpeg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/alien-tank.jpeg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/alien-tank.jpeg');
+  background-repeat: no-repeat;
+}
+
+.create-character-button:hover {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 200, 0.6)) ), url('/images/alien-tank.jpeg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/alien-tank.jpeg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/alien-tank.jpeg');
+  background-repeat: no-repeat;
+}
+
+.create-game-button {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 100, 0.4)) ), url('/images/robot.jpeg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/robot.jpeg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/robot.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/robot.jpeg');
+  background-repeat: no-repeat;
+}
+
+.create-game-button:hover {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 200, 0.6)) ), url('/images/robot.jpeg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/robot.jpeg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/robot.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/robot.jpeg');
+  background-repeat: no-repeat;
+}
+
+.join-game-button {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 100, 0.4)) ), url('/images/starfinder-gun.jpg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/starfinder-gun.jpg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/starfinder-gun.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.join-game-button:hover {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 200, 0.6)) ), url('/images/starfinder-gun.jpg');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/starfinder-gun.jpg');
+  background: -o-linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/starfinder-gun.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.home-text {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.secondary-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/*each card*/
+.cards {
+  border: 1px solid #000;
+  padding: 30px;
+}
+
+.card-title {
+  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
+}
+
+.input-title {
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+}
+
+.inputs {
+  width: 100%;
+  margin: auto;
+}
+
+.row-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin: auto;
+}
+
+.row-title-box {
+  padding: 10px;
+}
+
+.character-image {
+  height: 30%;
+  width: 30%;
+  border: 1px solid #000;
+}
+
+/*each row*/
+/*table {
+  table-layout:fixed;
+  width:100%;
+}
+
+td {
+  padding: 0;
+}*/
+
+.header-control {
+  height: 150px;
+}
+
+.delete-button {
+  background-color: red;
+  color: #FFF;
+}
+
+.char-detail-input {
+  width: 100%;
+}
+
+.player-cards {
+  border: 1px solid #000;
+  padding: 30px;
+  border-radius: 3px;
+}
+
+.game-player-stat {
+  height: 30px;
+}
+
+.grid-item {
+  float: left;
+  /*width: 50%;
+  height: auto;*/
+  width: 80px;
+  height: 60px;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
+/*Login Area CSS*/
+.accounts-main-container {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, .2)), to(rgba(0, 0, 0, .2)) ), url('/images/blurry-space-bg.png');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: -o-linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 60px 100px 100px 100px;
+  color: #FFF;
+}
+
+.login-area {
+  /*text-align: center;*/
+  width: 50%;
+  margin: auto;
+  padding: 50px;
+  border-radius: 50px;
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(255, 255, 255, .4)), to(rgba(255, 255, 255, .4)) );
+  background: -webkit-linear-gradient( rgba(255, 255, 255, .4), rgba(255, 255, 255, .4) );
+  background: -o-linear-gradient( rgba(255, 255, 255, .4), rgba(255, 255, 255, .4) );
+  background: linear-gradient( rgba(255, 255, 255, .4), rgba(255, 255, 255, .4) );
+}
+
+.submit-button {
+  background-color: #4A74B0;
+  color: #FFF;
+  border: 1px solid #FFF;
+  margin-bottom: 40px;
+}
+
+/*Join Game CSS*/
+.join-game-main-container {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(0, 0, 0, .2)), to(rgba(0, 0, 0, .2)) ), url('/images/blurry-space-bg.png');
+  background: -webkit-linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: -o-linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.join-game-section {
+  background: -webkit-gradient( linear, left top, left bottom, from(rgba(255, 255, 255, .5)), to(rgba(255, 255, 255, .5)) );
+  background: -webkit-linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  background: -o-linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  width: 70%;
+  margin: auto;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.join-game-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.go-home-button {
+  background-color: #455a64;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+.go-home-button a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.game-select {
+  background-color: #FFF;
+  padding: 40px;
+  border-radius: 5px;
+}
+</style><style type="text/css">@-webkit-keyframes toastify-bounceInRight{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(3000px,0,0);transform:translate3d(3000px,0,0)}60%{opacity:1;-webkit-transform:translate3d(-25px,0,0);transform:translate3d(-25px,0,0)}75%{-webkit-transform:translate3d(10px,0,0);transform:translate3d(10px,0,0)}90%{-webkit-transform:translate3d(-5px,0,0);transform:translate3d(-5px,0,0)}to{-webkit-transform:none;transform:none}}@keyframes toastify-bounceInRight{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(3000px,0,0);transform:translate3d(3000px,0,0)}60%{opacity:1;-webkit-transform:translate3d(-25px,0,0);transform:translate3d(-25px,0,0)}75%{-webkit-transform:translate3d(10px,0,0);transform:translate3d(10px,0,0)}90%{-webkit-transform:translate3d(-5px,0,0);transform:translate3d(-5px,0,0)}to{-webkit-transform:none;transform:none}}.toast-enter--bottom-right,.toast-enter--top-right,.toastify-bounceInRight{-webkit-animation-name:toastify-bounceInRight;animation-name:toastify-bounceInRight}@-webkit-keyframes toastify-bounceOutRight{20%{opacity:1;-webkit-transform:translate3d(-20px,0,0);transform:translate3d(-20px,0,0)}to{opacity:0;-webkit-transform:translate3d(2000px,0,0);transform:translate3d(2000px,0,0)}}@keyframes toastify-bounceOutRight{20%{opacity:1;-webkit-transform:translate3d(-20px,0,0);transform:translate3d(-20px,0,0)}to{opacity:0;-webkit-transform:translate3d(2000px,0,0);transform:translate3d(2000px,0,0)}}.toast-exit--bottom-right,.toast-exit--top-right,.toastify-bounceOutRight{-webkit-animation-name:toastify-bounceOutRight;animation-name:toastify-bounceOutRight}@-webkit-keyframes toastify-bounceInLeft{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(-3000px,0,0);transform:translate3d(-3000px,0,0)}60%{opacity:1;-webkit-transform:translate3d(25px,0,0);transform:translate3d(25px,0,0)}75%{-webkit-transform:translate3d(-10px,0,0);transform:translate3d(-10px,0,0)}90%{-webkit-transform:translate3d(5px,0,0);transform:translate3d(5px,0,0)}to{-webkit-transform:none;transform:none}}@keyframes toastify-bounceInLeft{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(-3000px,0,0);transform:translate3d(-3000px,0,0)}60%{opacity:1;-webkit-transform:translate3d(25px,0,0);transform:translate3d(25px,0,0)}75%{-webkit-transform:translate3d(-10px,0,0);transform:translate3d(-10px,0,0)}90%{-webkit-transform:translate3d(5px,0,0);transform:translate3d(5px,0,0)}to{-webkit-transform:none;transform:none}}.toast-enter--bottom-left,.toast-enter--top-left,.toastify-bounceInLeft{-webkit-animation-name:toastify-bounceInLeft;animation-name:toastify-bounceInLeft}@-webkit-keyframes toastify-bounceOutLeft{20%{opacity:1;-webkit-transform:translate3d(20px,0,0);transform:translate3d(20px,0,0)}to{opacity:0;-webkit-transform:translate3d(-2000px,0,0);transform:translate3d(-2000px,0,0)}}@keyframes toastify-bounceOutLeft{20%{opacity:1;-webkit-transform:translate3d(20px,0,0);transform:translate3d(20px,0,0)}to{opacity:0;-webkit-transform:translate3d(-2000px,0,0);transform:translate3d(-2000px,0,0)}}.toast-exit--bottom-left,.toast-exit--top-left,.toastify-bounceOutLeft{-webkit-animation-name:toastify-bounceOutLeft;animation-name:toastify-bounceOutLeft}@-webkit-keyframes toastify-bounceInUp{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(0,3000px,0);transform:translate3d(0,3000px,0)}60%{opacity:1;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}75%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}90%{-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0)}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}@keyframes toastify-bounceInUp{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(0,3000px,0);transform:translate3d(0,3000px,0)}60%{opacity:1;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}75%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}90%{-webkit-transform:translate3d(0,-5px,0);transform:translate3d(0,-5px,0)}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}.toast-enter--bottom-center,.toastify-bounceInUp{-webkit-animation-name:toastify-bounceInUp;animation-name:toastify-bounceInUp}@-webkit-keyframes toastify-bounceOutUp{20%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}40%,45%{opacity:1;-webkit-transform:translate3d(0,20px,0);transform:translate3d(0,20px,0)}to{opacity:0;-webkit-transform:translate3d(0,-2000px,0);transform:translate3d(0,-2000px,0)}}@keyframes toastify-bounceOutUp{20%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}40%,45%{opacity:1;-webkit-transform:translate3d(0,20px,0);transform:translate3d(0,20px,0)}to{opacity:0;-webkit-transform:translate3d(0,-2000px,0);transform:translate3d(0,-2000px,0)}}.toast-exit--top-center,.toastify-bounceOutUp{-webkit-animation-name:toastify-bounceOutUp;animation-name:toastify-bounceOutUp}@-webkit-keyframes toastify-bounceInDown{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(0,-3000px,0);transform:translate3d(0,-3000px,0)}60%{opacity:1;-webkit-transform:translate3d(0,25px,0);transform:translate3d(0,25px,0)}75%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}90%{-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0)}to{-webkit-transform:none;transform:none}}@keyframes toastify-bounceInDown{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(0,-3000px,0);transform:translate3d(0,-3000px,0)}60%{opacity:1;-webkit-transform:translate3d(0,25px,0);transform:translate3d(0,25px,0)}75%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}90%{-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0)}to{-webkit-transform:none;transform:none}}.toast-enter--top-center,.toastify-bounceInDown{-webkit-animation-name:toastify-bounceInDown;animation-name:toastify-bounceInDown}@-webkit-keyframes toastify-bounceOutDown{20%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}40%,45%{opacity:1;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:0;-webkit-transform:translate3d(0,2000px,0);transform:translate3d(0,2000px,0)}}@keyframes toastify-bounceOutDown{20%{-webkit-transform:translate3d(0,10px,0);transform:translate3d(0,10px,0)}40%,45%{opacity:1;-webkit-transform:translate3d(0,-20px,0);transform:translate3d(0,-20px,0)}to{opacity:0;-webkit-transform:translate3d(0,2000px,0);transform:translate3d(0,2000px,0)}}.toast-exit--bottom-center,.toastify-bounceOutDown{-webkit-animation-name:toastify-bounceOutDown;animation-name:toastify-bounceOutDown}.toastify-animated{-webkit-animation-duration:.75s;animation-duration:.75s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.toastify{z-index:1;position:fixed;padding:4px;width:320px;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff}.toastify--top-left{top:1em;left:1em}.toastify--top-center{top:1em;left:50%;margin-left:-160px}.toastify--top-right{top:1em;right:1em}.toastify--bottom-left{bottom:1em;left:1em}.toastify--bottom-center{bottom:1em;left:50%;margin-left:-160px}.toastify--bottom-right{bottom:1em;right:1em}@media only screen and (max-width:480px){.toastify{width:100vw;padding:0}.toastify--top-center,.toastify--top-left,.toastify--top-right{left:0;top:0;margin:0}.toastify--bottom-center,.toastify--bottom-left,.toastify--bottom-right{left:0;bottom:0;margin:0}}.toastify__close{padding:0;color:#fff;font-weight:700;font-size:14px;background:transparent;outline:none;border:none;cursor:pointer;opacity:.7;-webkit-transition:.3s ease;-o-transition:.3s ease;transition:.3s ease;-ms-flex-item-align:start;align-self:flex-start}.toastify__close:focus,.toastify__close:hover{opacity:1}.toastify-content--default .toastify__close{color:#000;opacity:.3}.toastify-content--default .toastify__close:hover{opacity:1}.toastify-content{position:relative;min-height:48px;margin-bottom:1rem;padding:8px;border-radius:1px;-webkit-box-shadow:0 1px 10px 0 rgba(0,0,0,.1),0 2px 15px 0 rgba(0,0,0,.05);box-shadow:0 1px 10px 0 rgba(0,0,0,.1),0 2px 15px 0 rgba(0,0,0,.05);display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;max-height:800px;overflow:hidden;font-family:sans-serif;cursor:pointer}.toastify-content--default{background:#fff;color:#aaa}.toastify-content--info{background:#3498db}.toastify-content--success{background:#07bc0c}.toastify-content--warning{background:#f1c40f}.toastify-content--error{background:#e74c3c}.toastify__body{margin:auto 0;-ms-flex:1;flex:1 1}@media only screen and (max-width:480px){.toastify-content{margin-bottom:0}}@-webkit-keyframes track-progress{0%{width:100%}to{width:0}}@keyframes track-progress{0%{width:100%}to{width:0}}.toastify__progress{position:absolute;bottom:0;left:0;width:0;height:5px;z-index:1;opacity:.7;-webkit-animation:track-progress linear 1;animation:track-progress linear 1;background-color:hsla(0,0%,100%,.7)}.toastify__progress--default{background:-webkit-gradient(linear,left top, right top,from(#4cd964),color-stop(#5ac8fa),color-stop(#007aff),color-stop(#34aadc),color-stop(#5856d6),to(#ff2d55));background:-webkit-linear-gradient(left,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55);background:-o-linear-gradient(left,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55);background:linear-gradient(90deg,#4cd964,#5ac8fa,#007aff,#34aadc,#5856d6,#ff2d55)}</style></head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div><h1 class="main-title">StarHelper</h1><main location="[object Object]" computedmatch="[object Object]"></main></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="./React App_files/masonry.pkgd.js"></script>
+  <script type="text/javascript" src="./React App_files/bundle.js"></script>
+
+</body></html>

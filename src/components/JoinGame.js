@@ -110,7 +110,7 @@ class JoinGame extends Component {
 
       // push to home screen once submitted
       setTimeout(() => {
-        this.props.history.push('/home');
+        this.props.history.push('/tabletop-helper/home');
       }, 3000);
 
     } else {
@@ -143,7 +143,7 @@ class JoinGame extends Component {
 
     return(
       <div className='join-game-main-container'>
-        <div className='row'><div className='button go-home-button two columns offset-by-five'><a href='/home'>Home</a></div></div>
+        <div className='row'><div className='button go-home-button two columns offset-by-five'><a href='/tabletop-helper/home'>Home</a></div></div>
 
         <div className='join-game-section'>
           <h4 className='join-game-header'>Join A Game</h4>
