@@ -166,7 +166,7 @@ td {
   width: 50%;
   margin: auto;
   padding: 50px;
-  border-radius: 50px;
+  border-radius: 10px;
   background: linear-gradient( rgba(255, 255, 255, .4), rgba(255, 255, 255, .4) );
 }
 
@@ -175,6 +175,11 @@ td {
   color: #FFF;
   border: 1px solid #FFF;
   margin-bottom: 40px;
+}
+
+.submit-button:hover {
+  color: #FFF;
+  background-color: #365681;
 }
 
 /*Join Game CSS*/
@@ -202,6 +207,7 @@ td {
   background-color: #455a64;
   border: 1px solid #000;
   margin-top: 10px;
+  color: #FFF;
 }
 
 .go-home-button a {
@@ -213,4 +219,8 @@ td {
   background-color: #FFF;
   padding: 40px;
   border-radius: 5px;
+}
+
+.input-row {
+  margin-top: 15px;
 }

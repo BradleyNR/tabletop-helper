@@ -87,6 +87,11 @@ class JoinGame extends Component {
     this.setState({selectedGame: e.target.value})
   }
 
+  handleNav = (e) => {
+    e.preventDefault();
+    this.props.history.push('/tabletop-helper/home');
+  }
+
 
   joinGame = (e) => {
     e.preventDefault();
@@ -124,18 +129,22 @@ class JoinGame extends Component {
 
     let characterOptions = this.state.characterNameArray.map((item, index) => {
       return(
-        <div>
-          <span className="label-body">{item}</span>
-          <input onChange={this.handleCharacterRadio} name='character-select' type="radio" value={item} />
+        <div className="pretty p-default p-round twelve columns input-row">
+         <input onChange={this.handleCharacterRadio} type="radio" value={item} />
+           <div className="state">
+               <label>{item}</label>
+           </div>
         </div>
       )
     });
 
     let gameOptions = this.state.gameNameArray.map((item, index) => {
       return(
-        <div>
-          <span className="label-body">{item}</span>
-          <input onChange={this.handleGameRadio} name='game-select' type="radio" value={item} />
+        <div className="pretty p-default p-round twelve columns input-row">
+         <input onChange={this.handleGameRadio} type="radio" value={item} />
+           <div className="state">
+               <label>{item}</label>
+           </div>
         </div>
       )
     });
@@ -143,7 +152,7 @@ class JoinGame extends Component {
 
     return(
       <div className='join-game-main-container'>
-        <div className='row'><div className='button go-home-button two columns offset-by-five'><a href='/tabletop-helper/home'>Home</a></div></div>
+        <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
 
         <div className='join-game-section'>
           <h4 className='join-game-header'>Join A Game</h4>
@@ -165,7 +174,9 @@ class JoinGame extends Component {
 
           </div>
 
-          <button onClick={this.joinGame}>Join Game</button>
+          <div className='row'>
+            <button onClick={this.joinGame} className='button go-home-button two columns offset-by-five'>Join Game</button>
+          </div>
         </div>
 
         <ToastContainer

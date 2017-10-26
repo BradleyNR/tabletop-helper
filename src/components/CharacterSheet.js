@@ -67,7 +67,8 @@ class Card extends Component {
 
     // return from Card component
     return (
-      <div className='cards grid-item'>
+      // <div className='cards grid-item'>
+      <div className='cards'>
         <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
@@ -220,19 +221,11 @@ class CharacterSheet extends Component{
     });
   }
 
-  render(){
-      var gridItems = (new Array(10)).join(' ').split(' ').map(function(){
-        return <div className="grid-item">Test Item</div>
-      });
-
-      return (
-        <div className='grid' id='grid'>
-          {gridItems}
-        </div>
-      )
+  handleNav = (e) => {
+    e.preventDefault();
+    this.props.history.push('/tabletop-helper/home');
   }
 
-  /*
   render(){
     let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
       return(
@@ -248,13 +241,11 @@ class CharacterSheet extends Component{
       )
     });
 
-
-
     return(
       <div>
 
         <div className='creator twelve columns'>
-          <div className='row'><div className='button'><a href='/tabletop-helper/home'>Go Home</a></div></div>
+          <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
 
           <form onSubmit={this.handleSubmit}>
 
@@ -287,7 +278,8 @@ class CharacterSheet extends Component{
 
             </div>
 
-            <div className='grid' id='grid'>
+            {/* <div className='grid' id='grid'> */}
+            <div>
               {cardsHtml}
             </div>
           </form>
@@ -311,7 +303,7 @@ class CharacterSheet extends Component{
       </div>
     )
   }
-  */
+
 }
 
 

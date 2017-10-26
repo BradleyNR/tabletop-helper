@@ -128,6 +128,11 @@ class GamePage extends Component {
     this.setState({game: new Game(), selectedGame: new Game(), title: '', description: '', gameVisible: false});
   }
 
+  handleNav = (e) => {
+    e.preventDefault();
+    this.props.history.push('/tabletop-helper/home');
+  }
+
   render(){
 
     // populate the dropdown with games
@@ -138,6 +143,7 @@ class GamePage extends Component {
       )
     });
 
+    // Iterates over stats for player characters to create cards on game
     let playerCards = this.state.players.map((item, index) => {
       return(
       <div className='five columns player-cards'>
@@ -169,7 +175,7 @@ class GamePage extends Component {
       <div className='ten columns offset-by-one'>
         <div className='row'>
 
-          <div className='button two columns'><a href='/tabletop-helper/home'>Go Home</a></div>
+          <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
           <button onClick={this.newGame} className='three columns'>New Game</button>
 
         </div>
