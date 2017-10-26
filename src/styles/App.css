@@ -67,15 +67,33 @@
   font-size: 14px;
 }
 
+/*CHARACTER SHEET STYLES*/
+.character-sheet-background {
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/blurry-space-bg.png');
+}
+
 .secondary-title {
   text-align: center;
   margin-bottom: 40px;
+  color: #FFF;
+}
+
+.character-sheet-controls {
+  width: 80%;
+  margin: auto;
+  color: #FFF;
+}
+
+/*cards containing div*/
+.cards-container {
 }
 
 /*each card*/
 .cards {
   border: 1px solid #000;
   padding: 30px;
+  margin: 10px;
+  background-color: #FFF;
 }
 
 .card-title {
@@ -111,14 +129,14 @@
 }
 
 /*each row*/
-/*table {
+table {
   table-layout:fixed;
   width:100%;
 }
 
 td {
   padding: 0;
-}*/
+}
 
 .header-control {
   height: 150px;
@@ -143,13 +161,9 @@ td {
   height: 30px;
 }
 
-.grid-item {
-  float: left;
-  /*width: 50%;
-  height: auto;*/
-  width: 80px;
-  height: 60px;
-  border: 2px solid hsla(0, 0%, 0%, 0.5);
+.image-upload-container {
+  border: 5px solid black;
+  /*padding: 100px;*/
 }
 
 /*Login Area CSS*/
@@ -223,4 +237,22 @@ td {
 
 .input-row {
   margin-top: 15px;
+}
+
+/*MASONRY*/
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-item {
+  float: left;
+  width: 40%;
+  /*height: 1000px;*/
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+}
+
+.grid-sizer {
+  width: 40%;
 }

@@ -67,8 +67,8 @@ class Card extends Component {
 
     // return from Card component
     return (
-      // <div className='cards grid-item'>
-      <div className='cards'>
+      <div className='cards grid-item'>
+      {/* // <div className='cards'> */}
         <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
@@ -124,8 +124,9 @@ class CharacterSheet extends Component{
     console.log(container);
     var msnry = new Masonry( container, {
       // options
-      columnWidth: 200,
-      itemSelector: '.grid-item'
+      columnWidth: '.grid-item',
+      itemSelector: '.grid-item',
+      percentPosition: true
     });
   }
 
@@ -242,14 +243,14 @@ class CharacterSheet extends Component{
     });
 
     return(
-      <div>
-
+      <div className='character-sheet-background'>
+        <div className='row'>
         <div className='creator twelve columns'>
           <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
 
           <form onSubmit={this.handleSubmit}>
 
-            <div className='row'>
+            <div className='row character-sheet-controls'>
 
               <h1 className='secondary-title'>Charactersheet Creator</h1>
 
@@ -260,15 +261,15 @@ class CharacterSheet extends Component{
                 </select>
               </div>
 
-              <div className='two columns header-control'>
+              <div className='three columns header-control'>
                 <label htmlFor='charName'>Character Name:</label>
                 <input onChange={this.handleNameChange} className='char-detail-input' id='charName' placeholder='character name' value={this.state.character.get('characterName')} type='text'></input>
               </div>
-              <div className='two columns header-control'>
+              <div className='three columns header-control'>
                 <label htmlFor='charClass'>Character Class:</label>
                 <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
               </div>
-              <div className='two columns header-control'>
+              <div className='three columns header-control'>
                 <button onClick={this.handleNewCharacter}>New Character</button>
                 <input type='submit' className='button button-primary submit-changes' value='Submit Changes'></input>
                 <div className='delete-container'>
@@ -278,17 +279,19 @@ class CharacterSheet extends Component{
 
             </div>
 
-            {/* <div className='grid' id='grid'> */}
-            <div>
+            <div className='grid' id='grid'>
+              {/* <div className="grid-sizer"></div> */}
+            {/* <div className='cards-container'> */}
               {cardsHtml}
             </div>
           </form>
 
         </div>
+      </div>
 
         <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
 
-        <DiceRoller />
+        {/* <DiceRoller /> */}
 
         <ToastContainer
           position="top-right"

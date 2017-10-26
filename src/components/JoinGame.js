@@ -130,7 +130,7 @@ class JoinGame extends Component {
     let characterOptions = this.state.characterNameArray.map((item, index) => {
       return(
         <div className="pretty p-default p-round twelve columns input-row">
-         <input onChange={this.handleCharacterRadio} type="radio" value={item} />
+         <input onChange={this.handleCharacterRadio} type="radio" name='character-select' value={item} />
            <div className="state">
                <label>{item}</label>
            </div>
@@ -141,7 +141,7 @@ class JoinGame extends Component {
     let gameOptions = this.state.gameNameArray.map((item, index) => {
       return(
         <div className="pretty p-default p-round twelve columns input-row">
-         <input onChange={this.handleGameRadio} type="radio" value={item} />
+         <input onChange={this.handleGameRadio} type="radio" name='game-select' value={item} />
            <div className="state">
                <label>{item}</label>
            </div>
