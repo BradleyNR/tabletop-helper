@@ -172,54 +172,71 @@ class GamePage extends Component {
     })
 
     return(
-      <div className='ten columns offset-by-one'>
-        <div className='row'>
+      <div className='game-page-background'>
+        <div className='ten columns offset-by-one game-page-control-area'>
+          <div className='row'>
 
-          <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
-          <button onClick={this.newGame} className='three columns'>New Game</button>
+            <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
+            <button onClick={this.newGame} className='three columns'>New Game</button>
 
-        </div>
-
-        <div className='row'>
-          <label htmlFor='game-select'>Select a game to view or edit:</label>
-          <select onChange={this.handleGameChange} id='game-select' className='three columns'>
-            {options}
-          </select>
-          <button onClick={this.editSelected} className='two columns'>View Selected</button>
-          <button onClick={this.handleDelete} className='two columns delete-button'>Delete Game</button>
-        </div>
-
-        <form className='twelve columns' onSubmit={this.handleGameCreate}>
-          <label htmlFor='game-title'>Game Title:</label>
-          <input onChange={this.handleTitle} type='text' className='twelve columns' id='game-title' value={this.state.title}></input>
-          <label htmlFor='game-description'>Game Description:</label>
-          <textarea onChange={this.handleDescription} className='twelve columns' id='game-description' value={this.state.description}></textarea>
-
-          <label>
-            <p>Visible to other players?</p>
-            <input onChange={this.handleRadio} name='active-game' type="radio" value={true} checked={this.state.gameVisible}/>
-            <span className="label-body">Yes</span>
-            <input onChange={this.handleRadio} name='active-game' type="radio" value={false} checked={!this.state.gameVisible}/>
-            <span className="label-body">No</span>
-          </label>
+          </div>
 
           <div className='row'>
-            <input className='button button-primary' type='submit' value='Apply Changes'></input>
+            <label htmlFor='game-select'>Select a game to view or edit:</label>
+            <select onChange={this.handleGameChange} id='game-select' className='three columns'>
+              {options}
+            </select>
+            <button onClick={this.editSelected} className='two columns'>View Selected</button>
+            <button onClick={this.handleDelete} className='two columns delete-button'>Delete Game</button>
           </div>
-        </form>
 
-        {playerCards}
+          <form className='twelve columns' onSubmit={this.handleGameCreate}>
+            <label htmlFor='game-title'>Game Title:</label>
+            <input onChange={this.handleTitle} type='text' className='twelve columns' id='game-title' value={this.state.title}></input>
+            <label htmlFor='game-description'>Game Description:</label>
+            <textarea onChange={this.handleDescription} className='twelve columns' id='game-description' value={this.state.description}></textarea>
 
-        <ToastContainer
-          position="top-right"
-          type="success"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          pauseOnHover
-        />
+            <div className='visible-to-players-section'>
+              <label>
+                <p>Visible to other players?</p>
+                <div className='row radio-button-row'>
 
+                  <div className="pretty p-default p-round one columns input-row">
+                    <input onChange={this.handleRadio} name='active-game' type="radio" value={true} checked={this.state.gameVisible}/>
+                     <div className="state">
+                         <label>Yes</label>
+                     </div>
+                  </div>
+
+                  <div className="pretty p-default p-round one columns input-row">
+                    <input onChange={this.handleRadio} name='active-game' type="radio" value={false} checked={!this.state.gameVisible}/>
+                     <div className="state">
+                         <label>No</label>
+                     </div>
+                  </div>
+
+                </div>
+              </label>
+            </div>
+
+            <div className='row'>
+              <input className='button button-primary' type='submit' value='Apply Changes'></input>
+            </div>
+          </form>
+
+          {playerCards}
+
+          <ToastContainer
+            position="top-right"
+            type="success"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            pauseOnHover
+          />
+
+        </div>
       </div>
     )
   }

@@ -92,7 +92,6 @@
 .cards {
   border: 1px solid #000;
   padding: 30px;
-  margin: 10px;
   background-color: #FFF;
 }
 
@@ -151,24 +150,20 @@ td {
   width: 100%;
 }
 
-.player-cards {
-  border: 1px solid #000;
-  padding: 30px;
-  border-radius: 3px;
-}
-
 .game-player-stat {
   height: 30px;
 }
 
 .image-upload-container {
-  border: 5px solid black;
-  /*padding: 100px;*/
+  border: 1px solid #000;
+  background-color: #FFF;
+  padding: 30px;
+  float: none;
 }
 
 /*Login Area CSS*/
 .accounts-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .6) ), url('/images/earth-bg.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 100px 100px 100px;
@@ -181,7 +176,7 @@ td {
   margin: auto;
   padding: 50px;
   border-radius: 10px;
-  background: linear-gradient( rgba(255, 255, 255, .4), rgba(255, 255, 255, .4) );
+  background: linear-gradient( rgba(255, 255, 255, .25), rgba(255, 255, 255, .25) );
 }
 
 .submit-button {
@@ -229,6 +224,10 @@ td {
   text-decoration: none;
 }
 
+.go-home-button:hover {
+  color: #FFF;
+}
+
 .game-select {
   background-color: #FFF;
   padding: 40px;
@@ -248,11 +247,53 @@ td {
 
 .grid-item {
   float: left;
-  width: 40%;
+  width: 43%;
+  margin: 10px;
   /*height: 1000px;*/
   border: 2px solid hsla(0, 0%, 0%, 0.5);
 }
 
 .grid-sizer {
   width: 40%;
+}
+
+/*create game styling*/
+
+.game-page-background {
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.game-page-background:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.game-page-control-area {
+  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.visible-to-players-section {
+  background-color: #FFF;
+  padding: 10px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.radio-button-row {
+}
+
+.player-cards {
+  border: 1px solid #000;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #FFF;
+  margin-bottom: 20px;
 }

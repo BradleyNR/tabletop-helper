@@ -279,9 +279,7 @@ class CharacterSheet extends Component{
 
             </div>
 
-            <div className='grid' id='grid'>
-              {/* <div className="grid-sizer"></div> */}
-            {/* <div className='cards-container'> */}
+            <div className='grid twelve columns' id='grid'>
               {cardsHtml}
             </div>
           </form>

@@ -43,8 +43,8 @@ class ImageUpload extends Component {
 
   render() {
     return (
-      <div>
-            <div className='image-upload-container'>
+      <div className='ten columns offset-by-one image-upload-container'>
+            <div className=''>
               <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
                 <label htmlFor='image' className=''>Character Portrait</label>
                 <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
