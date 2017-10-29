@@ -289,7 +289,7 @@ class CharacterSheet extends Component{
 
         <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
 
-        {/* <DiceRoller /> */}
+        <DiceRoller />
 
         <ToastContainer
           position="top-right"

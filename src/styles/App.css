@@ -163,7 +163,7 @@ td {
 
 /*Login Area CSS*/
 .accounts-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .6) ), url('/images/earth-bg.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .5) ), url('/images/earth-bg.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 100px 100px 100px;
@@ -296,4 +296,9 @@ td {
   border-radius: 3px;
   background-color: #FFF;
   margin-bottom: 20px;
+}
+
+/*DICE ROLLER STYLE*/
+.dice-roller {
+  background-color: #FFF;
 }

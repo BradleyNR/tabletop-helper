@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-let DICE_URL = 'https://rolz.org/api/?'
-
 class DiceRoller extends Component {
   constructor(props){
     super(props);
@@ -9,8 +7,8 @@ class DiceRoller extends Component {
     this.state = {
       numberOfSides: '',
       numberOfDice: '',
-      result: '',
-      details: ''
+      result: 0,
+      rolls: ''
     }
   };
 
@@ -27,20 +25,30 @@ class DiceRoller extends Component {
   handleSubmitDice = (e) => {
     e.preventDefault();
 
-    let Url = DICE_URL + this.state.numberOfDice + 'd' + this.state.numberOfSides + '.json'
+    let die = this.state.numberOfSides;
+    let dice = this.state.numberOfDice;
 
-    fetch(Url)
-      .then((response) => {
-        response.json()
-      }).then((data) => {
-        console.log('data', data);
-        this.setState({result: data.result, details: data.details})
-      });
+    let roll = (die, dice) => {
+      let roll = 0;
+      let rolls = [];
+
+      for (var loop = 0; loop < dice; loop++) {
+        let rolled = Math.round(Math.random() * die) % die + 1;
+        roll = roll + rolled;
+        rolls.push(rolled);
+      }
+
+      this.setState({result: roll, rolls: rolls.join(' + ')});
+      console.log(roll);
+      console.log(rolls);
+    }
+
+    roll(die, dice);
   }
 
   render(){
     return(
-      <div>
+      <div className='dice-roller'>
         <h1>Dice Roll</h1>
         <form>
           <div class="row">
@@ -56,8 +64,8 @@ class DiceRoller extends Component {
           </div>
         </form>
         <div>
-          <p></p>
-          <p></p>
+          <p>{this.state.rolls}</p>
+          <p>You rolled: {this.state.result}</p>
         </div>
 
       </div>
