@@ -128,6 +128,8 @@ class CharacterSheet extends Component{
       itemSelector: '.grid-item',
       percentPosition: true
     });
+
+    setInterval(function(){ msnry.layout(); }, 1000);
   }
 
   handleNameChange = (e) => {
@@ -221,6 +223,7 @@ class CharacterSheet extends Component{
       toast.success("Image added to character sheet. Don't forget to submit changes!");
     });
   }
+
 
   handleNav = (e) => {
     e.preventDefault();
