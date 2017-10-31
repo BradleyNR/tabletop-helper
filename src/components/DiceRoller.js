@@ -62,8 +62,8 @@ class DiceRoller extends Component {
             </div>
           </form>
           <div className='five columns'>
-            <p>{this.state.rolls}</p>
-            <p>You rolled: {this.state.result}</p>
+            <p className='rolls'>{this.state.rolls}</p>
+            <p className='rolls'>You rolled: {this.state.result}</p>
           </div>
           <div className='twelve columns'>
             <button onClick={this.handleSubmitDice} className='button btn-primary'>Roll The Dice!</button>

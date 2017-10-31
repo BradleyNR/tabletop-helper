@@ -173,17 +173,18 @@ class GamePage extends Component {
 
     return(
       <div className='game-page-background'>
+        <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
         <div className='ten columns offset-by-one game-page-control-area'>
           <div className='row'>
-
-            <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
-            <button onClick={this.newGame} className='three columns new-char-button'>New Game</button>
+            <button onClick={this.newGame} className='four columns offset-by-four new-char-button'>Clear Fields</button>
+            <p className='ten columns offset-by-one game-description-helptext'>Select a game and click the 'View Selected' button to view a game. When viewing a game,
+              you may edit the information and apply changes to update the game.</p>
 
           </div>
 
           <div className='row'>
             <label htmlFor='game-select'>Select a game to view or edit:</label>
-            <select onChange={this.handleGameChange} id='game-select' className='three columns'>
+            <select onChange={this.handleGameChange} id='game-select' className='four columns'>
               {options}
             </select>
             <button onClick={this.editSelected} className='three columns new-char-button'>View Selected</button>

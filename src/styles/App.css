@@ -30,7 +30,7 @@
 }
 
 .create-character-button {
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/alien-tank.jpeg');
   background-repeat: no-repeat;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .create-game-button {
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/robot.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/robot.jpeg');
   background-repeat: no-repeat;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .join-game-button {
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/starfinder-gun.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -168,6 +168,12 @@ td {
   height: 100%;
   width: 100%;
   border: 1px solid #000;
+}
+
+.rolls {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
 }
 
 /*Login Area CSS*/
@@ -294,6 +300,11 @@ td {
   margin-top: 100px;
   margin-bottom: 20px;
   border-radius: 5px;
+}
+
+.game-description-helptext {
+  text-align: center;
+  font-size: 18px;
 }
 
 .radio-button-row {
