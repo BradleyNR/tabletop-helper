@@ -41,11 +41,16 @@ class ImageUpload extends Component {
     reader.readAsDataURL(file)
   }
 
+  componentDidUpdate(){
+    // run masonry layout after the component updates
+    setTimeout(() => { this.props.msnry.layout(); }, 300);
+  }
+
   render() {
     return (
       <div className='image-upload-container grid-item'>
         <div className='row'>
-            <h1 className=''>Portrait:</h1>
+            <h1 className='card-title'>Portrait:</h1>
             <div className='six columns image-form-area'>
               <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
                 <label htmlFor='image' className=''>Character Portrait</label>

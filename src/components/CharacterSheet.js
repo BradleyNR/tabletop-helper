@@ -81,6 +81,8 @@ class CharacterSheet extends Component{
   constructor(props){
     super(props);
 
+    this.msnry = {layout: function(){}};
+
     this.state = {
       character: new Character({cards: card}),
       characterList: new CharacterList()
@@ -118,7 +120,7 @@ class CharacterSheet extends Component{
     });
   }
 
-  componentDidMount(){
+  componentDidMount = () => {
     // Masonry Setup
     var container = document.querySelector('#grid');
     console.log(container);
@@ -129,7 +131,7 @@ class CharacterSheet extends Component{
       percentPosition: true
     });
 
-    setInterval(function(){ msnry.layout(); }, 1000);
+    this.msnry = msnry;
   }
 
   handleNameChange = (e) => {
@@ -283,8 +285,8 @@ class CharacterSheet extends Component{
             </div>
 
             <div className='grid twelve columns' id='grid'>
-              <DiceRoller />
-              <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
+              <DiceRoller msnry={this.msnry}/>
+              <ImageUpload msnry={this.msnry} handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
               {cardsHtml}
             </div>
           </form>

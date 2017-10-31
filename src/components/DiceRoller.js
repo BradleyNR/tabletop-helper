@@ -46,11 +46,16 @@ class DiceRoller extends Component {
     roll(die, dice);
   }
 
+  componentDidUpdate(){
+    // run masonry layout after the component updates
+    this.props.msnry.layout();
+  }
+
   render(){
     return(
       <div className='dice-roller grid-item'>
         <div className='row'>
-          <h1>Dice Roll</h1>
+          <h1 className='card-title'>Dice Roll</h1>
           <form>
             <div class="">
               <div class="six columns">
