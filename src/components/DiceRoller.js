@@ -48,26 +48,27 @@ class DiceRoller extends Component {
 
   render(){
     return(
-      <div className='dice-roller'>
-        <h1>Dice Roll</h1>
-        <form>
-          <div class="row">
-            <div class="six columns">
-              <label htmlFor="num-side">What sided die?</label>
-              <input onChange={this.handleSides} class="u-full-width" id="num-side" />
-              <label htmlFor='num-roll'>How many dice do you want to roll?</label>
-              <input onChange={this.handleDice} class='u-full-width' id='num-roll' />
+      <div className='dice-roller grid-item'>
+        <div className='row'>
+          <h1>Dice Roll</h1>
+          <form>
+            <div class="">
+              <div class="six columns">
+                <label htmlFor="num-side">What sided die?</label>
+                <input onChange={this.handleSides} type='number' class="u-full-width" id="num-side" />
+                <label htmlFor='num-roll'>How many dice do you want to roll? (Max 20)</label>
+                <input onChange={this.handleDice} type='number' max='20' class='u-full-width' id='num-roll' />
+              </div>
             </div>
+          </form>
+          <div className='five columns'>
+            <p>{this.state.rolls}</p>
+            <p>You rolled: {this.state.result}</p>
           </div>
-          <div className='row'>
+          <div className='twelve columns'>
             <button onClick={this.handleSubmitDice} className='button btn-primary'>Roll The Dice!</button>
           </div>
-        </form>
-        <div>
-          <p>{this.state.rolls}</p>
-          <p>You rolled: {this.state.result}</p>
         </div>
-
       </div>
     )
   }

@@ -280,6 +280,8 @@ class CharacterSheet extends Component{
             </div>
 
             <div className='grid twelve columns' id='grid'>
+              <DiceRoller />
+              <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
               {cardsHtml}
             </div>
           </form>
@@ -287,9 +289,6 @@ class CharacterSheet extends Component{
         </div>
       </div>
 
-        <ImageUpload handleImage={this.handleImage} uploadedImage={this.state.character.get('imageUrl')}/>
-
-        <DiceRoller />
 
         <ToastContainer
           position="top-right"

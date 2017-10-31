@@ -121,12 +121,6 @@
   padding: 10px;
 }
 
-.character-image {
-  height: 30%;
-  width: 30%;
-  border: 1px solid #000;
-}
-
 /*each row*/
 table {
   table-layout:fixed;
@@ -159,6 +153,17 @@ td {
   background-color: #FFF;
   padding: 30px;
   float: none;
+  height: 335px;
+}
+
+.image-form-area {
+  font-size: 14px;
+}
+
+.character-image {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #000;
 }
 
 /*Login Area CSS*/
@@ -301,4 +306,5 @@ td {
 /*DICE ROLLER STYLE*/
 .dice-roller {
   background-color: #FFF;
+  padding: 30px;
 }

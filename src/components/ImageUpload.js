@@ -43,21 +43,28 @@ class ImageUpload extends Component {
 
   render() {
     return (
-      <div className='ten columns offset-by-one image-upload-container'>
-            <div className=''>
+      <div className='image-upload-container grid-item'>
+        <div className='row'>
+            <h1 className=''>Portrait:</h1>
+            <div className='six columns image-form-area'>
               <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
                 <label htmlFor='image' className=''>Character Portrait</label>
                 <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
                 <label htmlFor='file'>Choose an Image</label>
                 <input className='' type='file' id='file' onChange={this.handleImagePreview} />
-                <button type='submit' className='' onClick={this.handleSubmit}>Upload Image</button>
+
+                <div className='row'>
+                  <button type='submit' className='' onClick={this.handleSubmit}>Upload Image</button>
+                </div>
+
               </form>
             </div>
 
-            <div className='image-preview-area col-md-3'>
+            <div className='image-preview-area five columns'>
               {this.state.imagePreview ? <img src={this.state.imagePreview} className='character-image' alt='Character Portrait'/> : null}
               {this.props.uploadedImage ? <img src={this.props.uploadedImage} className='character-image' alt='Character Portrait'/> : null}
             </div>
+        </div>
       </div>
     )
   }
