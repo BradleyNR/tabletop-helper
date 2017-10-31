@@ -270,7 +270,7 @@ class CharacterSheet extends Component{
                 <input onChange={this.handleClassChange} className='char-detail-input' id='charClass' placeholder='character class' value={this.state.character.get('characterClass')} type='text'></input>
               </div>
               <div className='three columns header-control'>
-                <button onClick={this.handleNewCharacter}>New Character</button>
+                <button className='new-char-button' onClick={this.handleNewCharacter}>New Character</button>
                 <input type='submit' className='button button-primary submit-changes' value='Submit Changes'></input>
                 <div className='delete-container'>
                 <button className='delete-button' onClick={this.handleDeleteCharacter}>Delete Character</button>

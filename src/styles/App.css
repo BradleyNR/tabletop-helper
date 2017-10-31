@@ -84,6 +84,10 @@
   color: #FFF;
 }
 
+.new-char-button {
+  background-color: #FFF;
+}
+
 /*cards containing div*/
 .cards-container {
 }

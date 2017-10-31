@@ -177,7 +177,7 @@ class GamePage extends Component {
           <div className='row'>
 
             <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
-            <button onClick={this.newGame} className='three columns'>New Game</button>
+            <button onClick={this.newGame} className='three columns new-char-button'>New Game</button>
 
           </div>
 
@@ -186,8 +186,8 @@ class GamePage extends Component {
             <select onChange={this.handleGameChange} id='game-select' className='three columns'>
               {options}
             </select>
-            <button onClick={this.editSelected} className='two columns'>View Selected</button>
-            <button onClick={this.handleDelete} className='two columns delete-button'>Delete Game</button>
+            <button onClick={this.editSelected} className='three columns new-char-button'>View Selected</button>
+            <button onClick={this.handleDelete} className='three columns offset-by-two delete-button'>Delete Game</button>
           </div>
 
           <form className='twelve columns' onSubmit={this.handleGameCreate}>
