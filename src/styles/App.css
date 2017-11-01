@@ -30,33 +30,33 @@
 }
 
 .create-character-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/alien-tank.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-character-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/alien-tank.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-game-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/robot.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/robot.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-game-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/robot.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/robot.jpeg');
   background-repeat: no-repeat;
 }
 
 .join-game-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/starfinder-gun.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .join-game-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/starfinder-gun.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -69,7 +69,7 @@
 
 /*CHARACTER SHEET STYLES*/
 .character-sheet-background {
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/tabletop-helper/images/blurry-space-bg.png');
 }
 
 .secondary-title {
@@ -178,7 +178,7 @@ td {
 
 /*Login Area CSS*/
 .accounts-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .5) ), url('/images/earth-bg.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .5) ), url('/tabletop-helper/images/earth-bg.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 100px 100px 100px;
@@ -208,7 +208,7 @@ td {
 
 /*Join Game CSS*/
 .join-game-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/tabletop-helper/images/blurry-space-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -275,7 +275,7 @@ td {
 /*create game styling*/
 
 .game-page-background {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/tabletop-helper/images/blurry-space-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
