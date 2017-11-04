@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 class ImageUpload extends Component {
   constructor(props) {
     super(props);
@@ -41,37 +40,43 @@ class ImageUpload extends Component {
     reader.readAsDataURL(file)
   }
 
-  componentDidUpdate(){
-    // run masonry layout after the component updates
+  componentDidUpdate() {
+    // run masonry layout after the component updates    
     setTimeout(() => { this.props.msnry.layout(); }, 300);
   }
 
   render() {
-    return (
-      <div className='image-upload-container grid-item'>
-        <div className='row'>
-            <h1 className='card-title'>Portrait:</h1>
-            <div className='six columns image-form-area'>
-              <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
-                <label htmlFor='image' className=''>Character Portrait</label>
-                <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
-                <label htmlFor='file'>Choose an Image</label>
-                <input className='' type='file' id='file' onChange={this.handleImagePreview} />
+    return (<div className='image-upload-container grid-item'>
+      <div className='row'>
+        <h1 className='card-title'>Portrait:</h1>
+        <div className='six columns image-form-area'>
+          <form onSubmit={this.handleSubmit} encType='mutlipart/form-data'>
+            <label htmlFor='image' className=''>Character Portrait</label>
+            <input onChange={this.handleFilenameChange} className='' id='image' placeholder='Filename' value={this.state.filename}/>
+            <label htmlFor='file'>Choose an Image</label>
+            <input className='' type='file' id='file' onChange={this.handleImagePreview}/>
 
-                <div className='row'>
-                  <button type='submit' className='' onClick={this.handleSubmit}>Upload Image</button>
-                </div>
-
-              </form>
+            <div className='row'>
+              <button type='submit' className='' onClick={this.handleSubmit}>Upload Image</button>
             </div>
 
-            <div className='image-preview-area five columns'>
-              {this.state.imagePreview ? <img src={this.state.imagePreview} className='character-image' alt='Character Portrait'/> : null}
-              {this.props.uploadedImage ? <img src={this.props.uploadedImage} className='character-image' alt='Character Portrait'/> : null}
-            </div>
+          </form>
+        </div>
+
+        <div className='image-preview-area five columns'>
+          {
+            this.state.imagePreview
+              ? <img src={this.state.imagePreview} className='character-image' alt='Character Portrait'/>
+              : null
+          }
+          {
+            this.props.uploadedImage
+              ? <img src={this.props.uploadedImage} className='character-image' alt='Character Portrait'/>
+              : null
+          }
         </div>
       </div>
-    )
+    </div>)
   }
 }
 
