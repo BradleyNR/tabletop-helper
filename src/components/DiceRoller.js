@@ -31,7 +31,7 @@ class DiceRoller extends Component {
     let roll = (die, dice) => {
       let roll = 0;
       let rolls = [];
-      
+
       for (var loop = 0; loop < dice; loop++) {
         let rolled = Math.round(Math.random() * die) % die + 1;
         roll = roll + rolled;

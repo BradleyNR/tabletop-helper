@@ -6,5 +6,7 @@ const HEADERS = {
   'X-Parse-Revocable-Session': 1
 };
 
-
-export {PARSE_URL as default, HEADERS};
+export {
+  PARSE_URL as default,
+  HEADERS
+};

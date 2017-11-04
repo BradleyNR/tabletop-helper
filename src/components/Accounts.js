@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import User from '../models/user';
 
-class Accounts extends Component{
-  constructor(props){
+class Accounts extends Component {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -68,41 +68,43 @@ class Accounts extends Component{
     });
   }
 
-  render(){
-    return(
-      <div className='accounts-main-container'>
+  render() {
+    return (<div className='accounts-main-container'>
 
-        <section className='login-area'>
-          <h4>Login:</h4>
-          <form onSubmit={this.handleLoginSubmit}>
-            <div className="row">
-              <input onChange={this.handleLoginUsername} type="text" className="twelve columns" placeholder="Username" value={this.state.loginUsername}/>
-            </div>
-            <div className="row">
-              <input onChange={this.handleLoginPassword} type="password" className="twelve columns" placeholder="Password" value={this.state.loginPassword}/>
-            </div>
-            <div className='row'>
-              <button type="submit" className="six columns offset-by-three submit-button">Submit</button>
-            </div>
-          </form>
+      <section className='login-area'>
+        <h4>Login:</h4>
+        <form onSubmit={this.handleLoginSubmit}>
+          <div className="row">
+            <input onChange={this.handleLoginUsername} type="text" className="twelve columns" placeholder="Username" value={this.state.loginUsername}/>
+          </div>
+          <div className="row">
+            <input onChange={this.handleLoginPassword} type="password" className="twelve columns" placeholder="Password" value={this.state.loginPassword}/>
+          </div>
+          <div className='row'>
+            <button type="submit" className="six columns offset-by-three submit-button">Submit</button>
+          </div>
+        </form>
 
-          <h4>Create Account:</h4>
-          {this.state.errorMessage ? <h2>{this.state.errorMessage}</h2> : null}
-          <form onSubmit={this.handleSubmit}>
-            <div className="row">
-              <input onChange={this.handleUsername} type="text" className="twelve columns" placeholder="Username" value={this.state.username}/>
-            </div>
-            <div className="row">
-              <input onChange={this.handlePassword} type="password" className="twelve columns" placeholder="Password" value={this.state.password}/>
-            </div>
-            <div className='row'>
-              <button type="submit" className="six columns offset-by-three submit-button">Submit</button>
-            </div>
-          </form>
-        </section>
+        <h4>Create Account:</h4>
+        {
+          this.state.errorMessage
+            ? <h2>{this.state.errorMessage}</h2>
+            : null
+        }
+        <form onSubmit={this.handleSubmit}>
+          <div className="row">
+            <input onChange={this.handleUsername} type="text" className="twelve columns" placeholder="Username" value={this.state.username}/>
+          </div>
+          <div className="row">
+            <input onChange={this.handlePassword} type="password" className="twelve columns" placeholder="Password" value={this.state.password}/>
+          </div>
+          <div className='row'>
+            <button type="submit" className="six columns offset-by-three submit-button">Submit</button>
+          </div>
+        </form>
+      </section>
 
-      </div>
-    )
+    </div>)
   }
 };
 

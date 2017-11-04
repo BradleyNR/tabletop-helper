@@ -4,12 +4,11 @@ import Character, {CharacterList} from '../models/Character';
 import Game, {GameList} from '../models/Game';
 
 // Messages
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-
 class JoinGame extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -22,20 +21,24 @@ class JoinGame extends Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // grabs all characters from the server and set to state
     let characterList = this.state.characterList;
     // grabbing the current objId from the logged in user
     let user = JSON.parse(localStorage.getItem('user'))
     let objId = user.objectId;
     let pointer = {
-       "__type":"Pointer",
-       "className":"_User",
-       "objectId": objId
-     };
+      "__type": "Pointer",
+      "className": "_User",
+      "objectId": objId
+    };
 
-     // grabbing character lists associated with logged in user
-    characterList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
+    // grabbing character lists associated with logged in user
+    characterList.fetch({
+      data: {
+        where: JSON.stringify({owner: pointer})
+      }
+    }).then((data) => {
       if (data) {
         console.log('all good');
         this.setState({characterList: characterList});
@@ -58,8 +61,12 @@ class JoinGame extends Component {
 
     // grab all active games and set to state
     let gameList = this.state.gameList;
-     // grabbing game lists associated with logged in user
-    gameList.fetch({data: {where: JSON.stringify({gameVisible: true})}}).then((data) => {
+    // grabbing game lists associated with logged in user
+    gameList.fetch({
+      data: {
+        where: JSON.stringify({gameVisible: true})
+      }
+    }).then((data) => {
       if (data) {
         console.log('Games Acquired');
         this.setState({gameList: gameList});
@@ -91,7 +98,6 @@ class JoinGame extends Component {
     e.preventDefault();
     this.props.history.push('/tabletop-helper/home');
   }
-
 
   joinGame = (e) => {
     e.preventDefault();
@@ -125,72 +131,59 @@ class JoinGame extends Component {
     }
   }
 
-  render(){
+  render() {
 
     let characterOptions = this.state.characterNameArray.map((item, index) => {
-      return(
-        <div className="pretty p-default p-round twelve columns input-row">
-         <input onChange={this.handleCharacterRadio} type="radio" name='character-select' value={item} />
-           <div className="state">
-               <label>{item}</label>
-           </div>
+      return (<div className="pretty p-default p-round twelve columns input-row">
+        <input onChange={this.handleCharacterRadio} type="radio" name='character-select' value={item}/>
+        <div className="state">
+          <label>{item}</label>
         </div>
-      )
+      </div>)
     });
 
     let gameOptions = this.state.gameNameArray.map((item, index) => {
-      return(
-        <div className="pretty p-default p-round twelve columns input-row">
-         <input onChange={this.handleGameRadio} type="radio" name='game-select' value={item} />
-           <div className="state">
-               <label>{item}</label>
-           </div>
+      return (<div className="pretty p-default p-round twelve columns input-row">
+        <input onChange={this.handleGameRadio} type="radio" name='game-select' value={item}/>
+        <div className="state">
+          <label>{item}</label>
         </div>
-      )
+      </div>)
     });
 
+    return (<div className='join-game-main-container'>
+      <div className='row'>
+        <button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button>
+      </div>
 
-    return(
-      <div className='join-game-main-container'>
-        <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
+      <div className='join-game-section'>
+        <h4 className='join-game-header'>Join A Game</h4>
+        <div className='row'>
 
-        <div className='join-game-section'>
-          <h4 className='join-game-header'>Join A Game</h4>
-            <div className='row'>
-
-              <div className='six columns game-select'>
-                <label>
-                  <p>Select A Character:</p>
-                  {characterOptions}
-                </label>
-              </div>
-
-              <div className='six columns game-select'>
-                <label>
-                  <p>Select a game:</p>
-                  {gameOptions}
-                </label>
-              </div>
-
+          <div className='six columns game-select'>
+            <label>
+              <p>Select A Character:</p>
+              {characterOptions}
+            </label>
           </div>
 
-          <div className='row'>
-            <button onClick={this.joinGame} className='button go-home-button two columns offset-by-five'>Join Game</button>
+          <div className='six columns game-select'>
+            <label>
+              <p>Select a game:</p>
+              {gameOptions}
+            </label>
           </div>
+
         </div>
 
-        <ToastContainer
-          position="top-right"
-          type="success"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          pauseOnHover
-        />
-
+        <div className='row'>
+          <button onClick={this.joinGame} className='button go-home-button two columns offset-by-five'>Join Game</button>
+        </div>
       </div>
-    )
+
+      <ToastContainer position="top-right" type="success" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick="closeOnClick" pauseOnHover="pauseOnHover"/>
+
+    </div>)
   }
 }
 

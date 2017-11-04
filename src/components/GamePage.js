@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 // Messages
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import Game, {GameList} from '../models/Game';
 
-
 class GamePage extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -22,19 +21,23 @@ class GamePage extends Component {
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
     let gameList = this.state.gameList;
     // grabbing the current objId from the logged in user
     let user = JSON.parse(localStorage.getItem('user'))
     let objId = user.objectId;
     let pointer = {
-       "__type":"Pointer",
-       "className":"_User",
-       "objectId": objId
-     };
+      "__type": "Pointer",
+      "className": "_User",
+      "objectId": objId
+    };
 
-     // grabbing game lists associated with logged in user
-    gameList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
+    // grabbing game lists associated with logged in user
+    gameList.fetch({
+      data: {
+        where: JSON.stringify({owner: pointer})
+      }
+    }).then((data) => {
       if (data) {
         console.log('Games Acquired');
         this.setState({gameList: gameList, selectedGame: gameList.models[0]});
@@ -55,9 +58,9 @@ class GamePage extends Component {
 
     //setting pointer to currently logged in user as owner
     game.set('owner', {
-      "__type":"Pointer",
-     "className":"_User",
-     "objectId": objId
+      "__type": "Pointer",
+      "className": "_User",
+      "objectId": objId
     });
 
     game.set('gameVisible', this.state.gameVisible);
@@ -88,18 +91,22 @@ class GamePage extends Component {
 
   handleRadio = (e) => {
     //force string to boolean for state
-    this.setState({gameVisible: e.target.value === 'true'});
+    this.setState({
+      gameVisible: e.target.value === 'true'
+    });
   }
 
   handleDelete = (e) => {
     e.preventDefault();
     let game = this.state.game;
     let gameList = this.state.gameList;
-    game.destroy({success: (model, response) => {
-      toast.warning('Game Deleted!');
-      gameList.remove(game);
-      this.setState({title: '', description: '', gameVisible: false, game: new Game()})
-    }})
+    game.destroy({
+      success: (model, response) => {
+        toast.warning('Game Deleted!');
+        gameList.remove(game);
+        this.setState({title: '', description: '', gameVisible: false, game: new Game()})
+      }
+    })
   }
 
   // TODO: MAKE SURE THAT THIS VALUE CHANGES TO A NEW CHARACTER WHEN THEY ARE ADDED
@@ -133,113 +140,105 @@ class GamePage extends Component {
     this.props.history.push('/tabletop-helper/home');
   }
 
-  render(){
+  render() {
 
     // populate the dropdown with games
     let options = this.state.gameList.models.map((item, index) => {
       let fields = item.attributes;
-      return(
-        <option key={index} value={fields.title}>{fields.title}</option>
-      )
+      return (<option key={index} value={fields.title}>{fields.title}</option>)
     });
 
     // Iterates over stats for player characters to create cards on game
     let playerCards = this.state.players.map((item, index) => {
-      return(
-      <div className='five columns player-cards'>
+      return (<div className='five columns player-cards'>
         <p>Character Name: {item.characterName}</p>
         <p>Character Class: {item.characterClass}</p>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[0].title}</p><p className='five columns'>{item.cards[0].rows[0].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[0].title}</p>
+          <p className='five columns'>{item.cards[0].rows[0].inputs.Score}</p>
         </div>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[1].title}</p><p className='five columns'>{item.cards[0].rows[1].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[1].title}</p>
+          <p className='five columns'>{item.cards[0].rows[1].inputs.Score}</p>
         </div>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[2].title}</p><p className='five columns'>{item.cards[0].rows[2].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[2].title}</p>
+          <p className='five columns'>{item.cards[0].rows[2].inputs.Score}</p>
         </div>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[3].title}</p><p className='five columns'>{item.cards[0].rows[3].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[3].title}</p>
+          <p className='five columns'>{item.cards[0].rows[3].inputs.Score}</p>
         </div>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[4].title}</p><p className='five columns'>{item.cards[0].rows[4].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[4].title}</p>
+          <p className='five columns'>{item.cards[0].rows[4].inputs.Score}</p>
         </div>
         <div className='row'>
-          <p className='five columns game-player-stat'>{item.cards[0].rows[5].title}</p><p className='five columns'>{item.cards[0].rows[5].inputs.Score}</p>
+          <p className='five columns game-player-stat'>{item.cards[0].rows[5].title}</p>
+          <p className='five columns'>{item.cards[0].rows[5].inputs.Score}</p>
         </div>
-      </div>
-    )
+      </div>)
     })
 
-    return(
-      <div className='game-page-background'>
-        <div className='row'><button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button></div>
-        <div className='ten columns offset-by-one game-page-control-area'>
-          <div className='row'>
-            <button onClick={this.newGame} className='four columns offset-by-four new-char-button'>Clear Fields</button>
-            <p className='ten columns offset-by-one game-description-helptext'>Select a game and click the 'View Selected' button to view a game. When viewing a game,
-              you may edit the information and apply changes to update the game.</p>
-
-          </div>
-
-          <div className='row'>
-            <label htmlFor='game-select'>Select a game to view or edit:</label>
-            <select onChange={this.handleGameChange} id='game-select' className='four columns'>
-              {options}
-            </select>
-            <button onClick={this.editSelected} className='three columns new-char-button'>View Selected</button>
-            <button onClick={this.handleDelete} className='three columns offset-by-two delete-button'>Delete Game</button>
-          </div>
-
-          <form className='twelve columns' onSubmit={this.handleGameCreate}>
-            <label htmlFor='game-title'>Game Title:</label>
-            <input onChange={this.handleTitle} type='text' className='twelve columns' id='game-title' value={this.state.title}></input>
-            <label htmlFor='game-description'>Game Description:</label>
-            <textarea onChange={this.handleDescription} className='twelve columns' id='game-description' value={this.state.description}></textarea>
-
-            <div className='visible-to-players-section'>
-              <label>
-                <p>Visible to other players?</p>
-                <div className='row radio-button-row'>
-
-                  <div className="pretty p-default p-round one columns input-row">
-                    <input onChange={this.handleRadio} name='active-game' type="radio" value={true} checked={this.state.gameVisible}/>
-                     <div className="state">
-                         <label>Yes</label>
-                     </div>
-                  </div>
-
-                  <div className="pretty p-default p-round one columns input-row">
-                    <input onChange={this.handleRadio} name='active-game' type="radio" value={false} checked={!this.state.gameVisible}/>
-                     <div className="state">
-                         <label>No</label>
-                     </div>
-                  </div>
-
-                </div>
-              </label>
-            </div>
-
-            <div className='row'>
-              <input className='button button-primary' type='submit' value='Apply Changes'></input>
-            </div>
-          </form>
-
-          {playerCards}
-
-          <ToastContainer
-            position="top-right"
-            type="success"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            pauseOnHover
-          />
-
-        </div>
+    return (<div className='game-page-background'>
+      <div className='row'>
+        <button onClick={this.handleNav} className='button go-home-button two columns offset-by-five'>Home</button>
       </div>
-    )
+      <div className='ten columns offset-by-one game-page-control-area'>
+        <div className='row'>
+          <button onClick={this.newGame} className='four columns offset-by-four new-char-button'>Clear Fields</button>
+          <p className='ten columns offset-by-one game-description-helptext'>Select a game and click the 'View Selected' button to view a game. When viewing a game, you may edit the information and apply changes to update the game.</p>
+        </div>
+
+        <div className='row'>
+          <label htmlFor='game-select'>Select a game to view or edit:</label>
+          <select onChange={this.handleGameChange} id='game-select' className='four columns'>
+            {options}
+          </select>
+          <button onClick={this.editSelected} className='three columns new-char-button'>View Selected</button>
+          <button onClick={this.handleDelete} className='three columns offset-by-two delete-button'>Delete Game</button>
+        </div>
+
+        <form className='twelve columns' onSubmit={this.handleGameCreate}>
+          <label htmlFor='game-title'>Game Title:</label>
+          <input onChange={this.handleTitle} type='text' className='twelve columns' id='game-title' value={this.state.title}></input>
+          <label htmlFor='game-description'>Game Description:</label>
+          <textarea onChange={this.handleDescription} className='twelve columns' id='game-description' value={this.state.description}></textarea>
+
+          <div className='visible-to-players-section'>
+            <label>
+              <p>Visible to other players?</p>
+              <div className='row radio-button-row'>
+
+                <div className="pretty p-default p-round one columns input-row">
+                  <input onChange={this.handleRadio} name='active-game' type="radio" value={true} checked={this.state.gameVisible}/>
+                  <div className="state">
+                    <label>Yes</label>
+                  </div>
+                </div>
+
+                <div className="pretty p-default p-round one columns input-row">
+                  <input onChange={this.handleRadio} name='active-game' type="radio" value={false} checked={!this.state.gameVisible}/>
+                  <div className="state">
+                    <label>No</label>
+                  </div>
+                </div>
+
+              </div>
+            </label>
+          </div>
+
+          <div className='row'>
+            <input className='button button-primary' type='submit' value='Apply Changes'></input>
+          </div>
+        </form>
+
+        {playerCards}
+
+        <ToastContainer position="top-right" type="success" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick="closeOnClick" pauseOnHover="pauseOnHover"/>
+
+      </div>
+    </div>)
   }
 }
 

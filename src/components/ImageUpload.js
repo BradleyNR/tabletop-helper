@@ -41,8 +41,10 @@ class ImageUpload extends Component {
   }
 
   componentDidUpdate() {
-    // run masonry layout after the component updates    
-    setTimeout(() => { this.props.msnry.layout(); }, 300);
+    // run masonry layout after the component updates
+    setTimeout(() => {
+      this.props.msnry.layout();
+    }, 300);
   }
 
   render() {
