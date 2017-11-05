@@ -30,33 +30,33 @@
 }
 
 .create-character-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9)), url('/images/alien-tank.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-character-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/alien-tank.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6)), url('/images/alien-tank.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-game-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/robot.jpeg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9)), url('/images/robot.jpeg');
   background-repeat: no-repeat;
 }
 
 .create-game-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/robot.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6)), url('/images/robot.jpeg');
   background-repeat: no-repeat;
 }
 
 .join-game-button {
-  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9) ), url('/tabletop-helper/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(100, 100, 300, 0.3), rgba(0, 0, 0, 0.9)), url('/images/starfinder-gun.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .join-game-button:hover {
-  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6) ), url('/tabletop-helper/images/starfinder-gun.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 200, 0.6)), url('/images/starfinder-gun.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -68,8 +68,9 @@
 }
 
 /*CHARACTER SHEET STYLES*/
+
 .character-sheet-background {
-  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4) ), url('/tabletop-helper/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 100, 0.4)), url('/images/blurry-space-bg.png');
 }
 
 .secondary-title {
@@ -89,10 +90,11 @@
 }
 
 /*cards containing div*/
-.cards-container {
-}
+
+.cards-container {}
 
 /*each card*/
+
 .cards {
   border: 1px solid #000;
   padding: 30px;
@@ -126,9 +128,10 @@
 }
 
 /*each row*/
+
 table {
-  table-layout:fixed;
-  width:100%;
+  table-layout: fixed;
+  width: 100%;
 }
 
 td {
@@ -177,8 +180,9 @@ td {
 }
 
 /*Login Area CSS*/
+
 .accounts-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .5) ), url('/tabletop-helper/images/earth-bg.jpeg');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .5)), url('/images/earth-bg.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 60px 100px 100px 100px;
@@ -191,7 +195,7 @@ td {
   margin: auto;
   padding: 50px;
   border-radius: 10px;
-  background: linear-gradient( rgba(255, 255, 255, .25), rgba(255, 255, 255, .25) );
+  background: linear-gradient( rgba(255, 255, 255, .25), rgba(255, 255, 255, .25));
 }
 
 .submit-button {
@@ -207,15 +211,16 @@ td {
 }
 
 /*Join Game CSS*/
+
 .join-game-main-container {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/tabletop-helper/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('/images/blurry-space-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
 }
 
 .join-game-section {
-  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5));
   width: 70%;
   margin: auto;
   border-radius: 20px;
@@ -254,6 +259,7 @@ td {
 }
 
 /*MASONRY*/
+
 .grid:after {
   content: '';
   display: block;
@@ -275,7 +281,7 @@ td {
 /*create game styling*/
 
 .game-page-background {
-  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) ), url('/tabletop-helper/images/blurry-space-bg.png');
+  background: linear-gradient( rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('/images/blurry-space-bg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -287,7 +293,7 @@ td {
 }
 
 .game-page-control-area {
-  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5) );
+  background: linear-gradient( rgba(255, 255, 255, .5), rgba(255, 255, 255, .5));
   border-radius: 20px;
   padding: 30px;
   margin-top: 30px;
@@ -307,8 +313,7 @@ td {
   font-size: 18px;
 }
 
-.radio-button-row {
-}
+.radio-button-row {}
 
 .player-cards {
   border: 1px solid #000;
@@ -319,6 +324,7 @@ td {
 }
 
 /*DICE ROLLER STYLE*/
+
 .dice-roller {
   background-color: #FFF;
   padding: 30px;

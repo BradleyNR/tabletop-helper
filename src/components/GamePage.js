@@ -137,7 +137,7 @@ class GamePage extends Component {
 
   handleNav = (e) => {
     e.preventDefault();
-    this.props.history.push('/tabletop-helper/home');
+    this.props.history.push('/home');
   }
 
   render() {

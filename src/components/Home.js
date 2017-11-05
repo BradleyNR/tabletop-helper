@@ -4,17 +4,17 @@ class Home extends Component {
 
   render() {
     return (<div className='row home-button-row'>
-      <a href='/tabletop-helper/sheets'>
+      <a href='/sheets'>
         <div className='create-character-button home-nav-button twelve columns'>
           <p className='white-text'>Characters</p>
         </div>
       </a>
-      <a href='/tabletop-helper/game'>
+      <a href='/game'>
         <div className='create-game-button home-nav-button twelve columns'>
           <p className='white-text'>Games</p>
         </div>
       </a>
-      <a href='/tabletop-helper/joingame'>
+      <a href='/joingame'>
         <div className='join-game-button home-nav-button twelve columns'>
           <p className='white-text'>Join a Game</p>
         </div>

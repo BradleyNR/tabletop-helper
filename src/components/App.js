@@ -14,11 +14,11 @@ class App extends Component {
     return (<Router>
       <Switch>
         <main>
-          <Route path='/tabletop-helper/' exact="exact" component={Accounts}/>
-          <Route path='/tabletop-helper/home' exact="exact" component={Home}/>
-          <Route path='/tabletop-helper/sheets' exact="exact" component={CharacterSheet}/>
-          <Route path='/tabletop-helper/game' exact="exact" component={GamePage}/>
-          <Route path='/tabletop-helper/joingame' exact="exact" component={JoinGame}/> {/* <Redirect to="/" /> */}
+          <Route path='/' exact="exact" component={Accounts}/>
+          <Route path='/home' exact="exact" component={Home}/>
+          <Route path='/sheets' exact="exact" component={CharacterSheet}/>
+          <Route path='/game' exact="exact" component={GamePage}/>
+          <Route path='/joingame' exact="exact" component={JoinGame}/> {/* <Redirect to="/" /> */}
         </main>
       </Switch>
     </Router>);

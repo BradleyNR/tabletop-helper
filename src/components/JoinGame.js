@@ -96,7 +96,7 @@ class JoinGame extends Component {
 
   handleNav = (e) => {
     e.preventDefault();
-    this.props.history.push('/tabletop-helper/home');
+    this.props.history.push('/home');
   }
 
   joinGame = (e) => {
@@ -121,7 +121,7 @@ class JoinGame extends Component {
 
       // push to home screen once submitted
       setTimeout(() => {
-        this.props.history.push('/tabletop-helper/home');
+        this.props.history.push('/home');
       }, 3000);
 
     } else {
