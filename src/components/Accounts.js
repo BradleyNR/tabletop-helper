@@ -49,10 +49,10 @@ class Accounts extends Component {
 
     // If username and password aren't blank, create a user, else throw error
     if (this.state.username !== '' && this.state.password !== '') {
-      User.signup({username: this.state.username, password: this.state.password}.then(() => {
+      User.signup({username: this.state.username, password: this.state.password}).then(() => {
         this.setState({username: '', password: ''});
         this.props.history.push('/home');
-      }));
+      });
     } else {
       this.setState({errorMessage: 'You must have both a username and password to create an account!'})
     }

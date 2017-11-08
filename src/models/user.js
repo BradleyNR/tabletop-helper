@@ -22,8 +22,9 @@ var User = Backbone.Model.extend({
     // Still apply save method
     return Backbone.Model.prototype.save.apply(this, arguments);
   },
-  // sign upser up, then set the localStorage with the user
+  // sign user up, then set the localStorage with the user
   signup: function(credentials){
+    console.log('signup firing');
     let newUser = new User(credentials);
     return newUser.save().then(() => {
       User.localStore(newUser);

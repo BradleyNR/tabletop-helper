@@ -56,12 +56,12 @@ class DiceRoller extends Component {
       <div className='row'>
         <h1 className='card-title'>Dice Roll</h1>
         <form>
-          <div class="">
-            <div class="six columns">
+          <div className="">
+            <div className="six columns">
               <label htmlFor="num-side">What sided die?</label>
-              <input onChange={this.handleSides} type='number' class="u-full-width" id="num-side"/>
+              <input onChange={this.handleSides} type='number' className="u-full-width" id="num-side"/>
               <label htmlFor='num-roll'>How many dice do you want to roll? (Max 20)</label>
-              <input onChange={this.handleDice} type='number' max='20' class='u-full-width' id='num-roll'/>
+              <input onChange={this.handleDice} type='number' max='20' className='u-full-width' id='num-roll'/>
             </div>
           </div>
         </form>

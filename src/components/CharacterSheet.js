@@ -37,7 +37,7 @@ class Card extends Component {
 
       let inputsArray = [];
 
-      // wizard code to grab object keys and values
+      // grab object keys and values
       for (var key in card.inputs) {
         if (card.inputs.hasOwnProperty(key)) {
           inputsArray.push(key)
@@ -68,7 +68,6 @@ class Card extends Component {
     // return from Card component
     return (
       <div className='cards grid-item'>
-      {/* // <div className='cards'> */}
         <h1 className='card-title'>{this.props.title}</h1>
         {rowsHtml}
       </div>
@@ -103,7 +102,8 @@ class CharacterSheet extends Component{
 
      // grabbing character lists associated with logged in user
     characterList.fetch({data: {where: JSON.stringify({owner: pointer})}}).then((data) => {
-      if (data) {
+      console.log('THIS IS THE INITIAL DATA', data.results.length);
+      if (data.results.length >= 1) {
         console.log('all good');
         this.setState({characterList: characterList, character: characterList.models[0]});
       } else {
@@ -233,7 +233,7 @@ class CharacterSheet extends Component{
   }
 
   render(){
-    let cardsHtml = this.state.character.attributes.cards.map((item, index) => {
+    let cardsHtml = this.state.character.get('cards').map((item, index) => {
       return(
         <Card key={index} title={item.title} data={item.rows} rows={item.rows.length} character={this.state.character} handleUpdate={this.handleUpdate} cardIndex={index}/>
       )
